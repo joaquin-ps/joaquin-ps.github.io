@@ -6,8 +6,14 @@ ROOT = Path(__file__).resolve().parent
 
 EMAIL = "joaquin.palacios@columbia.edu"
 LINKEDIN = "https://www.linkedin.com/in/joaquin-b-palacios"
+ROAM_LAB = "https://roam.me.columbia.edu/"
+MATEI = "https://www.me.columbia.edu/faculty/matei-ciocarlie"
+
+ROAM_LAB_HTML = f'<a href="{ROAM_LAB}" rel="noopener noreferrer">ROAM Lab</a>'
+MATEI_HTML = f'<a href="{MATEI}" rel="noopener noreferrer">Matei Ciocarlie</a>'
 
 RESEARCH_LINKS = [
+    ("DITTO", "https://roamlab.github.io/ditto/"),
     ("ROAM Hand 3", "/research/roam-hand-3/"),
     ("MyHand-SCI", "/research/myhand-sci/"),
     ("ROAM Hand 1", "/research/roam-hand/"),
@@ -22,6 +28,12 @@ PORTFOLIO_LINKS = [
 ]
 
 
+def nav_href(prefix: str, href: str) -> str:
+    if href.startswith("http://") or href.startswith("https://"):
+        return href
+    return f"{prefix}{href.lstrip('/')}"
+
+
 def depth_prefix(path: str) -> str:
     # path like "" or "research/roam-hand-3"
     parts = [p for p in path.strip("/").split("/") if p]
@@ -31,11 +43,13 @@ def depth_prefix(path: str) -> str:
 def shell(title: str, path: str, current: str, body: str, description: str = "") -> str:
     prefix = depth_prefix(path)
     desc = description or f"{title} — Joaquin Palacios, robotics engineer and PhD candidate at Columbia University."
-    research_items = "\n".join(
-        f'          <a href="{prefix}{href.lstrip("/")}">{label}</a>' for label, href in RESEARCH_LINKS
-    )
+    research_items_list = []
+    for label, href in RESEARCH_LINKS:
+        extra = ' rel="noopener noreferrer"' if href.startswith("http") else ""
+        research_items_list.append(f'          <a href="{nav_href(prefix, href)}"{extra}>{label}</a>')
+    research_items = "\n".join(research_items_list)
     portfolio_items = "\n".join(
-        f'          <a href="{prefix}{href.lstrip("/")}">{label}</a>' for label, href in PORTFOLIO_LINKS
+        f'          <a href="{nav_href(prefix, href)}">{label}</a>' for label, href in PORTFOLIO_LINKS
     )
 
     def cur(name: str) -> str:
@@ -87,7 +101,7 @@ def shell(title: str, path: str, current: str, body: str, description: str = "")
         <a href="{LINKEDIN}" rel="noopener noreferrer">LinkedIn</a>
         <a href="mailto:{EMAIL}">Email</a>
       </div>
-      <p>© Joaquin Palacios · Robotics · Columbia University / ROAM Lab</p>
+      <p>© Joaquin Palacios · Robotics · Columbia University / {ROAM_LAB_HTML}</p>
     </div>
   </footer>
   <script src="{prefix}assets/js/main.js"></script>
@@ -119,10 +133,28 @@ def meta_block(items: list[tuple[str, str]]) -> str:
     return f'<dl class="meta-grid">\n{rows}\n  </dl>'
 
 
+def media_tag(src: str, title: str, *, kind: str = "img") -> str:
+    """Render image or muted looping video for cards/thumbnails."""
+    if src.lower().endswith(".mp4") or src.lower().endswith(".webm"):
+        return (
+            f'<video class="thumb-video" src="{src}" autoplay muted loop playsinline '
+            f'preload="metadata" aria-label="{title}"></video>'
+        )
+    return f'<img src="{src}" alt="{title}">'
+
+
 # ---------- pages ----------
 
 def home() -> None:
+    ditto = "https://roamlab.github.io/ditto/"
+    ditto_blurb = (
+        "Co-designed <strong>dexterous hand</strong> and "
+        "kinematically equivalent <strong>motorized exoskeleton</strong> for <strong>both</strong> "
+        "<em>handheld</em> data collection and <em>bilateral teleoperation</em> "
+        "with <strong>joint-level force feedback</strong>."
+    )
     featured = [
+        (ditto, "media/home/highlight-ditto.mp4", "DITTO", ditto_blurb),
         ("research/roam-hand-3/", "media/home/highlight-roam-hand-3.png", "ROAM Hand 3",
          "Robot hand with 6-axis F/T sensorized fingertips and <strong>novel kinematics validated via RL policies.</strong>"),
         ("research/myhand-sci/", "media/home/highlight-myhand-sci.png", "MyHand SCI",
@@ -131,6 +163,7 @@ def home() -> None:
          "<strong>Robotic crop pollination</strong> for Vertical Farming."),
     ]
     projects = [
+        (ditto, "media/home/highlight-ditto.jpg", "DITTO", ditto_blurb),
         ("research/roam-hand-3/", "media/home/highlight-roam-hand-3.png", "ROAM Hand 3",
          "Robot hand with 6-axis F/T sensorized fingertips and <strong>novel kinematics validated via RL policies.</strong>"),
         ("portfolio/plan-bee/", "media/home/highlight-plan-bee.png", "Plan Bee",
@@ -148,17 +181,22 @@ def home() -> None:
         ("portfolio/applied-robotics/", "media/home/highlight-applied-robotics.png", "Applied Robotics",
          "Projects in applied robotics, leveraging <strong>ROS 2</strong> to implement (from scratch) <strong>cartesian control, inverse kinematics, path planning (using RRT algorithm)</strong>, and more.<br>Robots used: <strong>UR5e</strong>, <strong>Franka Emika.</strong>"),
     ]
-    feature_slides = "\n".join(
-        f'''        <a class="feature-slide{" is-active" if i == 0 else ""}" href="{href}" data-index="{i}">
-          <img src="{img}" alt="{title}">
+    feature_slide_parts = []
+    for i, (href, media, title, blurb) in enumerate(featured):
+        active = " is-active" if i == 0 else ""
+        rel = ' rel="noopener noreferrer"' if href.startswith("http") else ""
+        cta = "Visit project site →" if href.startswith("http") else "View project →"
+        feature_slide_parts.append(
+            f'''        <a class="feature-slide{active}" href="{href}" data-index="{i}"{rel}>
+          {media_tag(media, title)}
           <div class="feature-copy">
             <h3>{title}</h3>
             <p>{blurb}</p>
-            <span class="feature-link">View project →</span>
+            <span class="feature-link">{cta}</span>
           </div>
         </a>'''
-        for i, (href, img, title, blurb) in enumerate(featured)
-    )
+        )
+    feature_slides = "\n".join(feature_slide_parts)
     feature_dots = "\n".join(
         '          <button type="button" aria-label="Show slide {n}"{cls} data-index="{i}"></button>'.format(
             n=i + 1,
@@ -167,29 +205,34 @@ def home() -> None:
         )
         for i in range(len(featured))
     )
-    project_cards = "\n".join(
-        f'''      <a class="project-card reveal" href="{href}">
+    project_card_parts = []
+    for href, media, title, blurb in projects:
+        rel = ' rel="noopener noreferrer"' if href.startswith("http") else ""
+        project_card_parts.append(
+            f'''      <a class="project-card reveal" href="{href}"{rel}>
         <div class="project-media">
-          <img src="{img}" alt="{title}">
+          {media_tag(media, title)}
         </div>
         <h3>{title}</h3>
         <p>{blurb}</p>
       </a>'''
-        for href, img, title, blurb in projects
-    )
+        )
+    project_cards = "\n".join(project_card_parts)
     body = f"""
     <section class="hero">
       <div class="hero-copy">
-        <p class="eyebrow">Robotics · Columbia University · ROAM Lab</p>
+        <p class="eyebrow">Robotics · Columbia University · {ROAM_LAB_HTML}</p>
         <h1>Joaquin Palacios</h1>
         <p class="lede">
-          Robotics engineer from <strong>Quito, Ecuador</strong>.
-          PhD candidate in <strong>Mechanical Engineering</strong> at <strong>Columbia University</strong>,
-          research assistant at <strong>ROAM Lab</strong>, advised by Matei Ciocarlie.
+          Hi there! I'm Joaquin, a Robotics Engineer from <strong>Quito, Ecuador</strong>.
         </p>
         <p class="lede">
-          Passionate about the full stack of robotics: mechanical design, firmware, controls, and robot learning.
-          Research interests in <strong>autonomous robot manipulation</strong> and <strong>medical assistive robotics</strong>.
+          I'm currently a <strong>PhD candidate in Mechanical Engineering</strong> at <strong>Columbia University</strong>. I work at
+          the <strong>{ROAM_LAB_HTML}</strong>, advised by <strong>{MATEI_HTML}</strong>.
+        </p>
+        <p class="lede">
+          I am passionate about the full stack of robotics: mechanical design, electronics, controls, and robot learning.
+          My research interests are in <strong>autonomous robotic manipulation</strong> and <strong>medical assistive robotics</strong>.
         </p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="research/">Research</a>
@@ -203,23 +246,27 @@ def home() -> None:
       </div>
     </section>
 
-    <section class="section">
+    <section class="section section-highlights">
       <div class="section-head">
         <div>
           <h2>Highlights</h2>
           <p>Featured work in dexterous manipulation, assistive robotics, and agricultural robotics.</p>
         </div>
       </div>
-      <div class="feature-carousel reveal" data-carousel>
-        <div class="feature-track">
+      <div class="feature-carousel-bleed reveal">
+        <div class="feature-carousel" data-carousel>
+          <div class="feature-viewport">
+            <div class="feature-track">
 {feature_slides}
-        </div>
-        <div class="feature-nav">
-          <button class="feature-btn" type="button" data-carousel-prev aria-label="Previous highlight">← Prev</button>
-          <div class="feature-dots" data-carousel-dots>
-{feature_dots}
+            </div>
           </div>
-          <button class="feature-btn" type="button" data-carousel-next aria-label="Next highlight">Next →</button>
+          <div class="feature-nav">
+            <button class="feature-btn" type="button" data-carousel-prev aria-label="Previous highlight">← Prev</button>
+            <div class="feature-dots" data-carousel-dots>
+{feature_dots}
+            </div>
+            <button class="feature-btn" type="button" data-carousel-next aria-label="Next highlight">Next →</button>
+          </div>
         </div>
       </div>
     </section>
@@ -286,10 +333,10 @@ def publications() -> None:
         <div class="pub-body">
           <div class="year-label">2024</div>
           <h3>Grasp Force Assistance via Throttle-based Wrist Angle Control on a Robotic Hand Orthosis for C6–C7 Spinal Cord Injury</h3>
-          <p class="authors">Joaquin Palacios*, Alexandra Deli-Ivanov*, Ava Chen, Lauren Winterbottom, Dawn M. Nilsen, Joel Stein, and Matei Ciocarlie</p>
+          <p class="authors">Joaquin Palacios*, Alexandra Deli-Ivanov*, Ava Chen, Lauren Winterbottom, Dawn M. Nilsen, Joel Stein, and {MATEI_HTML}</p>
           <p class="venue">IEEE Transactions on Medical Robotics and Bionics (T-MRB) — Accepted</p>
           <div class="pub-links">
-            <a class="btn btn-ghost" href="../media/publications/myhand-sci-device.png">Figure</a>
+            <a class="btn btn-primary" href="https://pubmed.ncbi.nlm.nih.gov/40041101/" rel="noopener noreferrer">Paper</a>
           </div>
         </div>
       </article>
@@ -304,7 +351,7 @@ def publications() -> None:
         <div class="pub-body">
           <div class="year-label">2023</div>
           <h3>Towards Tenodesis-Modulated Control of an Assistive Hand Exoskeleton for SCI</h3>
-          <p class="authors">Joaquin Palacios*, Alexandra Deli-Ivanov*, Ava Chen, Lauren Winterbottom, Dawn M. Nilsen, Joel Stein, and Matei Ciocarlie</p>
+          <p class="authors">Joaquin Palacios*, Alexandra Deli-Ivanov*, Ava Chen, Lauren Winterbottom, Dawn M. Nilsen, Joel Stein, and {MATEI_HTML}</p>
           <p class="venue">IROS 2023 — Assistive Robots for Citizens Workshop (Accepted)</p>
           <div class="pub-links">
             <a class="btn btn-primary" href="../media/publications/iros-2023-workshop-paper.pdf">Paper (PDF)</a>
@@ -322,9 +369,17 @@ def research_index() -> None:
     <header class="page-hero">
       <p class="crumb"><a href="../">Home</a> / Research</p>
       <h1>Research</h1>
-      <p class="tagline">Hardware and controls research in dexterous manipulation and assistive robotics at ROAM Lab.</p>
+      <p class="tagline">Hardware and controls research in dexterous manipulation and assistive robotics at {ROAM_LAB_HTML}.</p>
     </header>
     <div class="project-list">
+      <a class="project-row reveal" href="https://roamlab.github.io/ditto/" rel="noopener noreferrer">
+        <video class="thumb-video" src="../media/research/ditto.mp4" autoplay muted loop playsinline preload="metadata" aria-label="DITTO"></video>
+        <div>
+          <h2>DITTO</h2>
+          <p>Co-designed <strong>dexterous hand</strong> and kinematically equivalent <strong>motorized exoskeleton</strong> for <strong>both</strong> <em>handheld</em> data collection and <em>bilateral teleoperation</em> with <strong>joint-level force feedback</strong>.</p>
+        </div>
+        <span class="year">2025–</span>
+      </a>
       <a class="project-row reveal" href="roam-hand-3/">
         <img src="../media/home/highlight-roam-hand-3.png" alt="ROAM Hand 3">
         <div>
@@ -433,7 +488,7 @@ def all_projects() -> None:
             ("Research area", "Autonomous robotic manipulation"),
             ("Contribution", "Mechanical design; kinematic validation via RL"),
             ("Years", "2024 – 2025"),
-            ("Collaborators", "Eugene Sohn, Veronika Zam, Amr El-Azizi, Sharfin Islam, Dongxiao Yang, Eric Chang, Zhanpeng He, Pedro Piacenza, Matei Ciocarlie"),
+            ("Collaborators", f"Eugene Sohn, Veronika Zam, Amr El-Azizi, Sharfin Islam, Dongxiao Yang, Eric Chang, Zhanpeng He, Pedro Piacenza, {MATEI_HTML}"),
             ("Press", 'Wall Street Journal (2025)'),
         ],
         """
@@ -467,7 +522,7 @@ def all_projects() -> None:
             ("Research area", "Assistive robotics"),
             ("Contribution", "Mechanical design, firmware, experiment design"),
             ("Years", "2022 – 2023"),
-            ("Collaborators", "Alexandra Deli-Ivanov, Ava Chen, Lauren Winterbottom, Dawn M. Nilsen, Joel Stein, Matei Ciocarlie"),
+            ("Collaborators", f"Alexandra Deli-Ivanov, Ava Chen, Lauren Winterbottom, Dawn M. Nilsen, Joel Stein, {MATEI_HTML}"),
         ],
         f"""
       <p>For MyHand-SCI we adopted a philosophy of augmenting, rather than overshadowing, an individual’s residual motor skills.
