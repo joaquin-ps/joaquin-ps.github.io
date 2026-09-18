@@ -122,33 +122,60 @@ def meta_block(items: list[tuple[str, str]]) -> str:
 # ---------- pages ----------
 
 def home() -> None:
-    highlights = [
+    featured = [
         ("research/roam-hand-3/", "media/home/highlight-roam-hand-3.png", "ROAM Hand 3",
-         "Robot hand with 6-axis F/T sensorized fingertips and novel kinematics validated via RL policies."),
+         "Robot hand with 6-axis F/T sensorized fingertips and <strong>novel kinematics validated via RL policies.</strong>"),
+        ("research/myhand-sci/", "media/home/highlight-myhand-sci.png", "MyHand SCI",
+         "<strong>Wearable robot</strong> to assist grasping for individuals with <strong>Spinal Cord Injuries.</strong>"),
         ("portfolio/plan-bee/", "media/home/highlight-plan-bee.png", "Plan Bee",
-         "Robotic crop pollination for vertical farming."),
-        ("research/myhand-sci/", "media/home/highlight-myhand-sci.png", "MyHand-SCI",
-         "Wearable robot to assist grasping for individuals with spinal cord injuries."),
-        ("research/roam-hand/", "media/home/highlight-roam-hand.png", "ROAM Hand 1",
-         "Developing a robot hand to explore proprioception in dexterous manipulation."),
-        ("portfolio/crab-io/", "media/home/highlight-crab-io.png", "Crab.io",
-         "A quadruped robot known for being cute and fast."),
-        ("portfolio/button-pressing-machine/", "media/home/highlight-button-pressing-machine.png", "Button-Pressing Machine",
-         "An exploration of mechatronics, machine design, controls, and machining."),
-        ("portfolio/digital-manufacturing/", "media/home/highlight-digital-manufacturing.png", "Digital Manufacturing",
-         "Generative design, topology optimization, additive manufacturing, and more."),
-        ("portfolio/applied-robotics/", "media/home/highlight-applied-robotics.png", "Applied Robotics",
-         "ROS 2 projects: cartesian control, inverse kinematics, path planning (RRT), and more. Robots: UR5e, Franka Emika."),
+         "<strong>Robotic crop pollination</strong> for Vertical Farming."),
     ]
-    cards = "\n".join(
-        f'''      <a class="highlight reveal" href="{href}">
-        <img src="{img}" alt="{title}">
-        <div>
-          <h3>{title}</h3>
-          <p>{blurb}</p>
+    projects = [
+        ("research/roam-hand-3/", "media/home/highlight-roam-hand-3.png", "ROAM Hand 3",
+         "Robot hand with 6-axis F/T sensorized fingertips and <strong>novel kinematics validated via RL policies.</strong>"),
+        ("portfolio/plan-bee/", "media/home/highlight-plan-bee.png", "Plan Bee",
+         "<strong>Robotic crop pollination</strong> for Vertical Farming."),
+        ("research/myhand-sci/", "media/home/highlight-myhand-sci.png", "MyHand SCI",
+         "<strong>Wearable robot</strong> to assist grasping for individuals with <strong>Spinal Cord Injuries.</strong>"),
+        ("research/roam-hand/", "media/home/highlight-roam-hand.png", "ROAM Hand 1",
+         "Developing a <strong>robot hand</strong> to explore proprioception in <strong>dexterous manipulation.</strong>"),
+        ("portfolio/crab-io/", "media/home/highlight-crab-io.png", "Crab.io",
+         "A <strong>quadruped robot</strong> known for being cute and fast!"),
+        ("portfolio/button-pressing-machine/", "media/home/highlight-button-pressing-machine.png", "Button-Pressing Machine",
+         "An exploration of <strong>mechatronics, machine design, controls,</strong> and <strong>machining.</strong>"),
+        ("portfolio/digital-manufacturing/", "media/home/highlight-digital-manufacturing.png", "Digital Manufacturing",
+         "A collection of projects exploring <strong>generative design, topology optimization, additive manufacturing,</strong> and more."),
+        ("portfolio/applied-robotics/", "media/home/highlight-applied-robotics.png", "Applied Robotics",
+         "Projects in applied robotics, leveraging <strong>ROS 2</strong> to implement (from scratch) <strong>cartesian control, inverse kinematics, path planning (using RRT algorithm)</strong>, and more.<br>Robots used: <strong>UR5e</strong>, <strong>Franka Emika.</strong>"),
+    ]
+    feature_slides = "\n".join(
+        f'''        <a class="feature-slide{" is-active" if i == 0 else ""}" href="{href}" data-index="{i}">
+          <img src="{img}" alt="{title}">
+          <div class="feature-copy">
+            <h3>{title}</h3>
+            <p>{blurb}</p>
+            <span class="feature-link">View project →</span>
+          </div>
+        </a>'''
+        for i, (href, img, title, blurb) in enumerate(featured)
+    )
+    feature_dots = "\n".join(
+        '          <button type="button" aria-label="Show slide {n}"{cls} data-index="{i}"></button>'.format(
+            n=i + 1,
+            i=i,
+            cls=' class="is-active"' if i == 0 else "",
+        )
+        for i in range(len(featured))
+    )
+    project_cards = "\n".join(
+        f'''      <a class="project-card reveal" href="{href}">
+        <div class="project-media">
+          <img src="{img}" alt="{title}">
         </div>
+        <h3>{title}</h3>
+        <p>{blurb}</p>
       </a>'''
-        for href, img, title, blurb in highlights
+        for href, img, title, blurb in projects
     )
     body = f"""
     <section class="hero">
@@ -180,30 +207,60 @@ def home() -> None:
       <div class="section-head">
         <div>
           <h2>Highlights</h2>
+          <p>Featured work in dexterous manipulation, assistive robotics, and agricultural robotics.</p>
+        </div>
+      </div>
+      <div class="feature-carousel reveal" data-carousel>
+        <div class="feature-track">
+{feature_slides}
+        </div>
+        <div class="feature-nav">
+          <button class="feature-btn" type="button" data-carousel-prev aria-label="Previous highlight">← Prev</button>
+          <div class="feature-dots" data-carousel-dots>
+{feature_dots}
+          </div>
+          <button class="feature-btn" type="button" data-carousel-next aria-label="Next highlight">Next →</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <h2>All Projects</h2>
           <p>Selected research and projects across dexterous manipulation, assistive robotics, and mechatronics.</p>
         </div>
       </div>
-      <div class="highlight-grid">
-{cards}
+      <div class="project-grid">
+{project_cards}
       </div>
     </section>
 
     <section class="section">
       <div class="teaser-row">
         <a class="teaser reveal" href="publications/">
-          <h3>Publications</h3>
-          <p>Journal and workshop papers on assistive hand exoskeletons for SCI.</p>
-          <span>Learn more →</span>
+          <img class="teaser-thumb" src="media/home/cover-myhand-sci.jpg" alt="">
+          <div class="teaser-body">
+            <h3>Publications</h3>
+            <p>Journal and workshop papers on assistive hand exoskeletons for SCI.</p>
+            <span>Learn more →</span>
+          </div>
         </a>
         <a class="teaser reveal" href="research/">
-          <h3>Research</h3>
-          <p>ROAM Hand platforms and MyHand-SCI wearable grasping assistance.</p>
-          <span>Learn more →</span>
+          <img class="teaser-thumb" src="media/home/cover-roam-hand.png" alt="">
+          <div class="teaser-body">
+            <h3>Research</h3>
+            <p>ROAM Hand platforms and MyHand-SCI wearable grasping assistance.</p>
+            <span>Learn more →</span>
+          </div>
         </a>
         <a class="teaser reveal" href="portfolio/">
-          <h3>Projects</h3>
-          <p>Plan Bee, Crab.io, applied ROS 2 robotics, and digital manufacturing.</p>
-          <span>Learn more →</span>
+          <img class="teaser-thumb" src="media/home/cover-crab-io.png" alt="">
+          <div class="teaser-body">
+            <h3>Projects</h3>
+            <p>Plan Bee, Crab.io, applied ROS 2 robotics, and digital manufacturing.</p>
+            <span>Learn more →</span>
+          </div>
         </a>
       </div>
     </section>
@@ -223,12 +280,17 @@ def publications() -> None:
     <section class="section">
       <h2 class="reveal" style="font-family:var(--font-display);letter-spacing:-0.02em">Journal Publications</h2>
       <article class="pub reveal">
-        <div class="year-label">2024</div>
-        <h3>Grasp Force Assistance via Throttle-based Wrist Angle Control on a Robotic Hand Orthosis for C6–C7 Spinal Cord Injury</h3>
-        <p class="authors">Joaquin Palacios*, Alexandra Deli-Ivanov*, Ava Chen, Lauren Winterbottom, Dawn M. Nilsen, Joel Stein, and Matei Ciocarlie</p>
-        <p class="venue">IEEE Transactions on Medical Robotics and Bionics (T-MRB) — Accepted</p>
-        <div class="pub-links">
-          <a class="btn btn-ghost" href="../media/publications/myhand-sci-figure.jpg">Figure</a>
+        <figure class="pub-thumb">
+          <img src="../media/publications/myhand-sci-device.png" alt="MyHand-SCI device and grasp/maintain/release control diagram">
+        </figure>
+        <div class="pub-body">
+          <div class="year-label">2024</div>
+          <h3>Grasp Force Assistance via Throttle-based Wrist Angle Control on a Robotic Hand Orthosis for C6–C7 Spinal Cord Injury</h3>
+          <p class="authors">Joaquin Palacios*, Alexandra Deli-Ivanov*, Ava Chen, Lauren Winterbottom, Dawn M. Nilsen, Joel Stein, and Matei Ciocarlie</p>
+          <p class="venue">IEEE Transactions on Medical Robotics and Bionics (T-MRB) — Accepted</p>
+          <div class="pub-links">
+            <a class="btn btn-ghost" href="../media/publications/myhand-sci-device.png">Figure</a>
+          </div>
         </div>
       </article>
     </section>
@@ -236,14 +298,18 @@ def publications() -> None:
     <section class="section">
       <h2 class="reveal" style="font-family:var(--font-display);letter-spacing:-0.02em">Workshop Publications</h2>
       <article class="pub reveal">
-        <div class="year-label">2023</div>
-        <h3>Towards Tenodesis-Modulated Control of an Assistive Hand Exoskeleton for SCI</h3>
-        <p class="authors">Joaquin Palacios*, Alexandra Deli-Ivanov*, Ava Chen, Lauren Winterbottom, Dawn M. Nilsen, Joel Stein, and Matei Ciocarlie</p>
-        <p class="venue">IROS 2023 — Assistive Robots for Citizens Workshop (Accepted)</p>
-        <div class="pub-links">
-          <a class="btn btn-primary" href="../media/publications/iros-2023-workshop-paper.pdf">Paper (PDF)</a>
-          <a class="btn btn-ghost" href="../media/publications/iros-2023-poster.pdf">Poster (PDF)</a>
-          <a class="btn btn-ghost" href="../media/publications/myhand-sci-device.png">Device image</a>
+        <figure class="pub-thumb">
+          <img src="../media/publications/myhand-sci-figure.jpg" alt="MyHand-SCI assisting a grasp of a small can">
+        </figure>
+        <div class="pub-body">
+          <div class="year-label">2023</div>
+          <h3>Towards Tenodesis-Modulated Control of an Assistive Hand Exoskeleton for SCI</h3>
+          <p class="authors">Joaquin Palacios*, Alexandra Deli-Ivanov*, Ava Chen, Lauren Winterbottom, Dawn M. Nilsen, Joel Stein, and Matei Ciocarlie</p>
+          <p class="venue">IROS 2023 — Assistive Robots for Citizens Workshop (Accepted)</p>
+          <div class="pub-links">
+            <a class="btn btn-primary" href="../media/publications/iros-2023-workshop-paper.pdf">Paper (PDF)</a>
+            <a class="btn btn-ghost" href="../media/publications/iros-2023-poster.pdf">Poster (PDF)</a>
+          </div>
         </div>
       </article>
     </section>
