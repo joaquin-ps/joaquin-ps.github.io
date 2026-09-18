@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Button-Pressing Machine — Joaquin Palacios</title>
+  <meta name="description" content="An exploration of mechatronics, machine design, controls, and machining.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a class="brand" href="../../">Joaquin Palacios</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav class="nav" id="site-nav" aria-label="Primary">
+        <a href="../../publications/">Publications</a>
+        <details>
+          <summary>Research</summary>
+          <div class="submenu">
+            <a href="../../research/">Overview</a>
+          <a href="../../research/roam-hand-3/">ROAM Hand 3</a>
+          <a href="../../research/myhand-sci/">MyHand-SCI</a>
+          <a href="../../research/roam-hand/">ROAM Hand 1</a>
+          </div>
+        </details>
+        <details>
+          <summary>Portfolio</summary>
+          <div class="submenu">
+            <a href="../../portfolio/" aria-current="page">Overview</a>
+          <a href="../../portfolio/plan-bee/">Plan Bee</a>
+          <a href="../../portfolio/crab-io/">Crab.io</a>
+          <a href="../../portfolio/button-pressing-machine/">Button-Pressing Machine</a>
+          <a href="../../portfolio/applied-robotics/">Applied Robotics</a>
+          <a href="../../portfolio/digital-manufacturing/">Digital Manufacturing</a>
+          </div>
+        </details>
+      </nav>
+    </div>
+  </header>
+  <main id="content">
+
+    <header class="page-hero">
+      <p class="crumb"><a href="../../">Home</a> / <a href="../../portfolio/">Portfolio</a> / Button-Pressing Machine</p>
+      <h1>Button-Pressing Machine</h1>
+      <p class="tagline">An exploration of mechatronics, machine design, controls, and machining.</p>
+    </header>
+    <dl class="meta-grid">
+    <div class="meta"><dt>Area</dt><dd>Mechatronics</dd></div>
+    <div class="meta"><dt>Contribution</dt><dd>Mechanical design and firmware</dd></div>
+    <div class="meta"><dt>Year</dt><dd>2022</dd></div>
+    <div class="meta"><dt>Collaborators</dt><dd>Valentina Gonzalez, Siddhanth Lath, Georgios Thomakos, Aiman Najah</dd></div>
+  </dl>
+    <div class="prose reveal">
+
+      <p>In an arcade-style button-pressing game, a four-bar linkage with a solenoid presses buttons as quickly as possible.
+      A PID controller drives rapid motion between buttons.</p>
+      <p>Responsibilities included Arduino firmware and gain tuning, four-bar linkage design for the required trajectory,
+      and manufacturing aluminum links via waterjet cutting and CNC milling.</p>
+
+    </div>
+    <section class="section reveal">
+      <h2 style="font-family:var(--font-display);letter-spacing:-0.02em;margin:0 0 1rem">Gallery</h2>
+      <div class="gallery wide">
+<figure><img src="../../media/button-pressing-machine/mechanism-closeup.png" alt="Mechanism close-up" loading="lazy"><figcaption>Mechanism close-up</figcaption></figure>
+<figure><img src="../../media/button-pressing-machine/full-machine.jpg" alt="Full machine" loading="lazy"><figcaption>Full machine</figcaption></figure>
+<figure><video controls playsinline preload="metadata" src="../../media/button-pressing-machine/machine-in-action.mp4"></video><figcaption>Machine in action</figcaption></figure>
+      </div>
+    </section>
+
+  </main>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>
+        <a href="https://www.linkedin.com/in/joaquin-b-palacios" rel="noopener noreferrer">LinkedIn</a>
+        <a href="mailto:joaquin.palacios@columbia.edu">Email</a>
+      </div>
+      <p>© Joaquin Palacios · Robotics · Columbia University / ROAM Lab</p>
+    </div>
+  </footer>
+  <script src="../../assets/js/main.js"></script>
+</body>
+</html>

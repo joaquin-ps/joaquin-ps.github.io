@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Applied Robotics — Joaquin Palacios</title>
+  <meta name="description" content="ROS 2 projects implementing cartesian control, inverse kinematics, and RRT path planning from scratch.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a class="brand" href="../../">Joaquin Palacios</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav class="nav" id="site-nav" aria-label="Primary">
+        <a href="../../publications/">Publications</a>
+        <details>
+          <summary>Research</summary>
+          <div class="submenu">
+            <a href="../../research/">Overview</a>
+          <a href="../../research/roam-hand-3/">ROAM Hand 3</a>
+          <a href="../../research/myhand-sci/">MyHand-SCI</a>
+          <a href="../../research/roam-hand/">ROAM Hand 1</a>
+          </div>
+        </details>
+        <details>
+          <summary>Portfolio</summary>
+          <div class="submenu">
+            <a href="../../portfolio/" aria-current="page">Overview</a>
+          <a href="../../portfolio/plan-bee/">Plan Bee</a>
+          <a href="../../portfolio/crab-io/">Crab.io</a>
+          <a href="../../portfolio/button-pressing-machine/">Button-Pressing Machine</a>
+          <a href="../../portfolio/applied-robotics/">Applied Robotics</a>
+          <a href="../../portfolio/digital-manufacturing/">Digital Manufacturing</a>
+          </div>
+        </details>
+      </nav>
+    </div>
+  </header>
+  <main id="content">
+
+    <header class="page-hero">
+      <p class="crumb"><a href="../../">Home</a> / <a href="../../portfolio/">Portfolio</a> / Applied Robotics</p>
+      <h1>Applied Robotics</h1>
+      <p class="tagline">ROS 2 projects implementing cartesian control, inverse kinematics, and RRT path planning from scratch.</p>
+    </header>
+    <dl class="meta-grid">
+    <div class="meta"><dt>Robots</dt><dd>UR5e, Franka Emika</dd></div>
+    <div class="meta"><dt>Stack</dt><dd>ROS 2</dd></div>
+    <div class="meta"><dt>Year</dt><dd>2023</dd></div>
+  </dl>
+    <div class="prose reveal">
+
+      <h2>Cartesian control</h2>
+      <p><strong>UR5e:</strong> end-effector pose controlled along one degree of freedom without influencing the rest.
+      Singularities handled with the Jacobian pseudoinverse.</p>
+      <p><strong>Franka Emika:</strong> as a redundant 7-DOF arm, joints can move in the Jacobian nullspace without changing end-effector pose.</p>
+      <h2>Path planning</h2>
+      <p>RRT-based planning on the UR5e, including scenes with obstacles.</p>
+
+    </div>
+    <section class="section reveal">
+      <h2 style="font-family:var(--font-display);letter-spacing:-0.02em;margin:0 0 1rem">Gallery</h2>
+      <div class="gallery wide">
+<figure><video controls playsinline preload="metadata" src="../../media/applied-robotics/ur5e-cartesian-control.mp4"></video><figcaption>Cartesian control — UR5e</figcaption></figure>
+<figure><video controls playsinline preload="metadata" src="../../media/applied-robotics/franka-cartesian-control.mp4"></video><figcaption>Cartesian control — Franka</figcaption></figure>
+<figure><video controls playsinline preload="metadata" src="../../media/applied-robotics/inverse-kinematics.mp4"></video><figcaption>Inverse kinematics</figcaption></figure>
+<figure><video controls playsinline preload="metadata" src="../../media/applied-robotics/teleop-screencast.mp4"></video><figcaption>Screencast</figcaption></figure>
+<figure><video controls playsinline preload="metadata" src="../../media/applied-robotics/rrt-no-obstacles.mp4"></video><figcaption>RRT — no obstacles</figcaption></figure>
+<figure><video controls playsinline preload="metadata" src="../../media/applied-robotics/rrt-simple-obstacle.mp4"></video><figcaption>RRT — simple obstacle</figcaption></figure>
+<figure><video controls playsinline preload="metadata" src="../../media/applied-robotics/rrt-hard-obstacle.mp4"></video><figcaption>RRT — hard obstacle</figcaption></figure>
+      </div>
+    </section>
+
+  </main>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>
+        <a href="https://www.linkedin.com/in/joaquin-b-palacios" rel="noopener noreferrer">LinkedIn</a>
+        <a href="mailto:joaquin.palacios@columbia.edu">Email</a>
+      </div>
+      <p>© Joaquin Palacios · Robotics · Columbia University / ROAM Lab</p>
+    </div>
+  </footer>
+  <script src="../../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ROAM Hand 1 — Joaquin Palacios</title>
+  <meta name="description" content="A tendon-driven robot hand exploring proprioception in dexterous manipulation.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a class="brand" href="../../">Joaquin Palacios</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav class="nav" id="site-nav" aria-label="Primary">
+        <a href="../../publications/">Publications</a>
+        <details>
+          <summary>Research</summary>
+          <div class="submenu">
+            <a href="../../research/" aria-current="page">Overview</a>
+          <a href="../../research/roam-hand-3/">ROAM Hand 3</a>
+          <a href="../../research/myhand-sci/">MyHand-SCI</a>
+          <a href="../../research/roam-hand/">ROAM Hand 1</a>
+          </div>
+        </details>
+        <details>
+          <summary>Portfolio</summary>
+          <div class="submenu">
+            <a href="../../portfolio/">Overview</a>
+          <a href="../../portfolio/plan-bee/">Plan Bee</a>
+          <a href="../../portfolio/crab-io/">Crab.io</a>
+          <a href="../../portfolio/button-pressing-machine/">Button-Pressing Machine</a>
+          <a href="../../portfolio/applied-robotics/">Applied Robotics</a>
+          <a href="../../portfolio/digital-manufacturing/">Digital Manufacturing</a>
+          </div>
+        </details>
+      </nav>
+    </div>
+  </header>
+  <main id="content">
+
+    <header class="page-hero">
+      <p class="crumb"><a href="../../">Home</a> / <a href="../../research/">Research</a> / ROAM Hand 1</p>
+      <h1>ROAM Hand 1</h1>
+      <p class="tagline">A tendon-driven robot hand exploring proprioception in dexterous manipulation.</p>
+    </header>
+    <dl class="meta-grid">
+    <div class="meta"><dt>Research area</dt><dd>Robotic manipulation</dd></div>
+    <div class="meta"><dt>Contribution</dt><dd>Mechanical design; firmware implementation</dd></div>
+    <div class="meta"><dt>Year</dt><dd>2023</dd></div>
+  </dl>
+    <div class="prose reveal">
+
+      <p>The ROAM Hand was developed as a hardware testbed to explore how proprioception can augment other sensing modalities—
+      such as tactile sensing and computer vision—toward dexterous manipulation.</p>
+      <p>Fingers are driven by tendons connected to servos inside the palm, with a load cell measuring the reaction torque of each motor,
+      allowing joint torque sensing. This is robotic proprioception.</p>
+      <h2>My role</h2>
+      <ul>
+        <li>Redesign of tendon routing and pulley transmission to reduce friction and improve torque sensing, keeping joints uncoupled.</li>
+        <li>Firmware for position control and torque sensing, integrated with ROS.</li>
+      </ul>
+
+    </div>
+    <section class="section reveal">
+      <h2 style="font-family:var(--font-display);letter-spacing:-0.02em;margin:0 0 1rem">Gallery</h2>
+      <div class="gallery wide">
+<figure><img src="../../media/roam-hand/render.png" alt="Render of ROAM Hand" loading="lazy"><figcaption>Render of ROAM Hand</figcaption></figure>
+<figure><img src="../../media/roam-hand/tendon-routing.png" alt="Tendon routing" loading="lazy"><figcaption>Tendon routing</figcaption></figure>
+<figure><img src="../../media/roam-hand/joint-pulleys.jpg" alt="Joint pulleys" loading="lazy"><figcaption>Joint pulleys</figcaption></figure>
+<figure><img src="../../media/roam-hand/manufacturing-detail.png" alt="Manufacturing detail" loading="lazy"><figcaption>Manufacturing detail</figcaption></figure>
+<figure><img src="../../media/roam-hand/roll-joint.jpg" alt="Roll joint / floating piece" loading="lazy"><figcaption>Roll joint / floating piece</figcaption></figure>
+<figure><img src="../../media/roam-hand/finger-motion-b.gif" alt="Motion GIF" loading="lazy"><figcaption>Motion GIF</figcaption></figure>
+<figure><img src="../../media/roam-hand/finger-motion-a.gif" alt="Motion GIF" loading="lazy"><figcaption>Motion GIF</figcaption></figure>
+<figure><video controls playsinline preload="metadata" src="../../media/roam-hand/hardware-demo.mp4"></video><figcaption>Hardware video</figcaption></figure>
+      </div>
+    </section>
+
+  </main>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>
+        <a href="https://www.linkedin.com/in/joaquin-b-palacios" rel="noopener noreferrer">LinkedIn</a>
+        <a href="mailto:joaquin.palacios@columbia.edu">Email</a>
+      </div>
+      <p>© Joaquin Palacios · Robotics · Columbia University / ROAM Lab</p>
+    </div>
+  </footer>
+  <script src="../../assets/js/main.js"></script>
+</body>
+</html>
