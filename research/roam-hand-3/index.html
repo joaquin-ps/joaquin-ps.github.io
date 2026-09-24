@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../../assets/css/styles.css">
+  <link rel="stylesheet" href="../../assets/css/styles.css?v=37280140">
 </head>
 <body>
   <a class="skip-link" href="#content">Skip to content</a>
@@ -17,7 +17,7 @@
       <a class="brand" href="../../">Joaquin Palacios</a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
       <nav class="nav" id="site-nav" aria-label="Primary">
-        <a href="../../publications/">Publications</a>
+        <a href="../../#publications">Publications</a>
         <details>
           <summary>Research</summary>
           <div class="submenu">
@@ -47,42 +47,64 @@
     <header class="page-hero">
       <p class="crumb"><a href="../../">Home</a> / <a href="../../research/">Research</a> / ROAM Hand 3</p>
       <h1>ROAM Hand 3</h1>
-      <p class="tagline">Robot hand with 6-axis F/T sensorized fingertips and novel kinematics validated via RL policies.</p>
     </header>
-    <dl class="meta-grid">
-    <div class="meta"><dt>Research area</dt><dd>Autonomous robotic manipulation</dd></div>
-    <div class="meta"><dt>Contribution</dt><dd>Mechanical design; kinematic validation via RL</dd></div>
-    <div class="meta"><dt>Years</dt><dd>2024 – 2025</dd></div>
-    <div class="meta"><dt>Collaborators</dt><dd>Eugene Sohn, Veronika Zam, Amr El-Azizi, Sharfin Islam, Dongxiao Yang, Eric Chang, Zhanpeng He, Pedro Piacenza, <a href="https://www.me.columbia.edu/faculty/matei-ciocarlie" rel="noopener noreferrer">Matei Ciocarlie</a></dd></div>
-    <div class="meta"><dt>Press</dt><dd>Wall Street Journal (2025)</dd></div>
-  </dl>
-    <div class="prose reveal">
-
-      <p>Iterative design cycle with robot learning in-the-loop to develop a novel dexterous robot hand.
-      Kinematics are validated by training dexterous in-hand manipulation skills via reinforcement learning.</p>
-      <p>6-axis force/torque sensorized fingertip development is led by collaborators Amr El-Azizi, Sharfin Islam, and Pedro Piacenza.</p>
-      <h2>Variants</h2>
-      <ul>
-        <li><strong>Anthropomorphic Hand (RH3-A)</strong></li>
-        <li><strong>Non-Anthropomorphic Hand (RH3-NA)</strong></li>
-      </ul>
-
+    <div class="pp-hero reveal">
+      <img src="../../media/roam-hand-3/ur5e-rubiks-cube.png" alt="ROAM Hand 3 on a UR5e arm holding a Rubik's cube" loading="lazy">
     </div>
-    <section class="section reveal">
-      <h2 style="font-family:var(--font-display);letter-spacing:-0.02em;margin:0 0 1rem">Gallery</h2>
-      <div class="gallery wide">
-<figure><img src="../../media/roam-hand-3/ur5e-rubiks-cube.png" alt="RH3 with UR5e" loading="lazy"><figcaption>RH3 with UR5e</figcaption></figure>
-<figure><img src="../../media/roam-hand-3/rh3-anthropomorphic.png" alt="Anthropomorphic hand (RH3-A)" loading="lazy"><figcaption>Anthropomorphic hand (RH3-A)</figcaption></figure>
-<figure><img src="../../media/roam-hand-3/rh3-top-view.png" alt="Top view" loading="lazy"><figcaption>Top view</figcaption></figure>
-<figure><img src="../../media/roam-hand-3/ur5e-tennis-ball.png" alt="Manipulation demo" loading="lazy"><figcaption>Manipulation demo</figcaption></figure>
-<figure><img src="../../media/roam-hand-3/rh3-na-with-block.png" alt="Non-anthropomorphic hand (RH3-NA)" loading="lazy"><figcaption>Non-anthropomorphic hand (RH3-NA)</figcaption></figure>
-<figure><img src="../../media/roam-hand-3/rh3-na-spread.png" alt="RH3-NA spread" loading="lazy"><figcaption>RH3-NA spread</figcaption></figure>
-<figure><video controls playsinline preload="metadata" src="../../media/roam-hand-3/in-hand-manipulation.mp4"></video><figcaption>In-hand manipulation</figcaption></figure>
-<figure><video controls playsinline preload="metadata" src="../../media/roam-hand-3/lug-nut-manipulation.mp4"></video><figcaption>Manipulation sequence</figcaption></figure>
-<figure><video controls playsinline preload="metadata" src="../../media/roam-hand-3/rh3-na-demo.mp4"></video><figcaption>RH3-NA demo</figcaption></figure>
-<figure><video controls playsinline preload="metadata" src="../../media/roam-hand-3/hardware-demo.mp4"></video><figcaption>Hardware video</figcaption></figure>
+    <div class="pp-intro reveal">
+      <div class="pp-intro-copy">
+        <p class="pp-lead">Robot hand with 6-axis F/T sensorized fingertips and <strong>novel kinematics validated via RL policies.</strong></p>
+        <p class="pp-label">Description:</p>
+        <p>Iterative design cycle with robot learning in-the-loop to develop a novel dexterous robot hand. Validating kinematics by training dexterous in-hand manipulation skills via Reinforcement Learning.</p>
+        <p>6 Axis Force/Torque sensorized fingertip development is being led by collaborators Amr El-Azizi, Sharfin Islam, and Pedro Piacenza.</p>
+        <p><strong>As seen in:</strong> <a href="https://www.wsj.com/tech/the-hands-problem-holding-back-the-humanoid-revolution-c1aa6123" rel="noopener noreferrer">Wall Street Journal (2025)</a></p>
       </div>
-    </section>
+      <dl class="pp-meta">
+        <div><dt>Research Area:</dt><dd><span>Autonomous Robotic Manipulation</span></dd></div>
+        <div><dt>Technical Contribution:</dt><dd><span>Mechanical Design, Kinematic Validation via RL Policies</span></dd></div>
+        <div><dt>Years:</dt><dd><span>2024 – 2025</span></dd></div>
+        <div><dt>Collaborators:</dt><dd><span class="pp-name">Eugene Sohn</span>, <span class="pp-name">Veronika Zam</span>, <span class="pp-name">Amr El-Azizi</span>, <span class="pp-name">Sharfin Islam</span>, <span class="pp-name">Dongxiao Yang</span>, <span class="pp-name">Eric Chang</span>, <span class="pp-name">Zhanpeng He</span>, <span class="pp-name">Pedro Piacenza</span>, and <span class="pp-name"><a href="https://www.me.columbia.edu/faculty/matei-ciocarlie" rel="noopener noreferrer">Matei Ciocarlie</a></span></dd></div>
+      </dl>
+    </div>
+    <div class="pp-body">
+      <section class="pp-section reveal">
+        <h2 class="pp-h2 center">Anthropomorphic Hand (RH3-A)</h2>
+        <figure class="pp-fig pp-medium">
+          <video src="../../media/roam-hand-3/in-hand-manipulation.mp4" controls playsinline preload="metadata" aria-label="RH3-A in-hand manipulation policy in simulation"></video>
+        </figure>
+        <div class="pp-grid" style="--cols:2">
+        <figure class="pp-fig">
+          <img src="../../media/roam-hand-3/rh3-top-view.png" alt="RH3-A top view" loading="lazy">
+        </figure>
+        <figure class="pp-fig">
+          <img src="../../media/roam-hand-3/rh3-anthropomorphic.png" alt="RH3-A front view" loading="lazy">
+        </figure>
+        </div>
+        <figure class="pp-fig pp-narrow">
+          <img src="../../media/roam-hand-3/ur5e-tennis-ball.png" alt="RH3-A on a UR5e holding a tennis racket" loading="lazy">
+        </figure>
+      </section>
+      <section class="pp-section reveal">
+        <h2 class="pp-h2 center">Non-Anthropomorphic Hand (RH3-NA)</h2>
+        <figure class="pp-fig pp-medium">
+          <video src="../../media/roam-hand-3/lug-nut-manipulation.mp4" controls playsinline preload="metadata" aria-label="RH3-NA hardware manipulating a block"></video>
+        </figure>
+        <figure class="pp-fig pp-medium">
+          <video src="../../media/roam-hand-3/rh3-na-demo.mp4" controls playsinline preload="metadata" aria-label="RH3-NA manipulation policy in simulation"></video>
+        </figure>
+        <div class="pp-grid" style="--cols:2">
+        <figure class="pp-fig">
+          <img src="../../media/roam-hand-3/rh3-na-spread.png" alt="RH3-NA with fingers spread" loading="lazy">
+        </figure>
+        <figure class="pp-fig">
+          <img src="../../media/roam-hand-3/rh3-na-with-block.png" alt="RH3-NA grasping a red block" loading="lazy">
+        </figure>
+        </div>
+        <figure class="pp-fig pp-medium">
+          <video src="../../media/roam-hand-3/hardware-demo.mp4" controls playsinline preload="metadata" aria-label="Running RH3-NA experiments at the lab"></video>
+        </figure>
+      </section>
+    </div>
 
   </main>
   <footer class="site-footer">
@@ -94,6 +116,6 @@
       <p>© Joaquin Palacios · Robotics · Columbia University / <a href="https://roam.me.columbia.edu/" rel="noopener noreferrer">ROAM Lab</a></p>
     </div>
   </footer>
-  <script src="../../assets/js/main.js"></script>
+  <script src="../../assets/js/main.js?v=7d8d8bed"></script>
 </body>
 </html>

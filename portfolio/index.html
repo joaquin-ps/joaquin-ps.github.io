@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="stylesheet" href="../assets/css/styles.css?v=37280140">
 </head>
 <body>
   <a class="skip-link" href="#content">Skip to content</a>
@@ -17,7 +17,7 @@
       <a class="brand" href="../">Joaquin Palacios</a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
       <nav class="nav" id="site-nav" aria-label="Primary">
-        <a href="../publications/">Publications</a>
+        <a href="../#publications">Publications</a>
         <details>
           <summary>Research</summary>
           <div class="submenu">
@@ -49,47 +49,62 @@
       <h1>Portfolio</h1>
       <p class="tagline">Course and personal projects spanning agricultural robotics, locomotion, mechatronics, and digital manufacturing.</p>
     </header>
-    <div class="project-list">
-      <a class="project-row reveal" href="plan-bee/">
-        <img src="../media/portfolio/plan-bee.png" alt="Plan Bee">
-        <div>
-          <h2>Plan Bee</h2>
-          <p>Robotic crop pollination for vertical farms.</p>
+    <div class="showcase">
+      <article class="showcase-row reveal">
+        <a class="showcase-media" href="plan-bee/" tabindex="-1" aria-hidden="true">
+          <img src="../media/home/highlight-plan-bee.png" alt="Plan Bee" loading="lazy">
+        </a>
+        <div class="showcase-copy">
+          <p class="overview-year">2023</p>
+          <h2><a href="plan-bee/">Plan Bee</a></h2>
+          <p>Developing a robot to automate <strong>crop pollination</strong> in vertical farms.</p>
+          <a class="overview-link" href="plan-bee/">View project →</a>
         </div>
-        <span class="year">2023</span>
-      </a>
-      <a class="project-row reveal" href="crab-io/">
-        <img src="../media/portfolio/crab-io.png" alt="Crab.io">
-        <div>
-          <h2>Crab.io</h2>
-          <p>A quadruped robot known for being cute and fast.</p>
+      </article>
+      <article class="showcase-row reveal">
+        <a class="showcase-media" href="crab-io/" tabindex="-1" aria-hidden="true">
+          <img src="../media/home/highlight-crab-io.png" alt="Crab.io" loading="lazy">
+        </a>
+        <div class="showcase-copy">
+          <p class="overview-year">2022</p>
+          <h2><a href="crab-io/">Crab.io</a></h2>
+          <p>A <strong>quadruped robot</strong> known for being cute and being fast!</p>
+          <a class="overview-link" href="crab-io/">View project →</a>
         </div>
-        <span class="year">2022</span>
-      </a>
-      <a class="project-row reveal" href="button-pressing-machine/">
-        <img src="../media/portfolio/button-pressing-machine.png" alt="Button-Pressing Machine">
-        <div>
-          <h2>Button-Pressing Machine</h2>
-          <p>Mechatronics, machine design, controls, and machining.</p>
+      </article>
+      <article class="showcase-row reveal">
+        <a class="showcase-media" href="button-pressing-machine/" tabindex="-1" aria-hidden="true">
+          <img src="../media/home/highlight-button-pressing-machine.png" alt="Button-Pressing Machine" loading="lazy">
+        </a>
+        <div class="showcase-copy">
+          <p class="overview-year">2022</p>
+          <h2><a href="button-pressing-machine/">Button-Pressing Machine</a></h2>
+          <p>An exploration of <strong>mechatronics, machine design, controls,</strong> and <strong>machining</strong>.</p>
+          <a class="overview-link" href="button-pressing-machine/">View project →</a>
         </div>
-        <span class="year">2022</span>
-      </a>
-      <a class="project-row reveal" href="applied-robotics/">
-        <img src="../media/portfolio/applied-robotics.png" alt="Applied Robotics">
-        <div>
-          <h2>Applied Robotics</h2>
-          <p>ROS 2 cartesian control, IK, and RRT path planning on UR5e and Franka Emika.</p>
+      </article>
+      <article class="showcase-row reveal">
+        <a class="showcase-media" href="applied-robotics/" tabindex="-1" aria-hidden="true">
+          <img src="../media/home/highlight-applied-robotics.png" alt="Applied Robotics" loading="lazy">
+        </a>
+        <div class="showcase-copy">
+          <p class="overview-year">2023</p>
+          <h2><a href="applied-robotics/">Applied Robotics</a></h2>
+          <p>Projects in applied robotics, leveraging <strong>ROS 2</strong> to implement from scratch cartesian control, inverse kinematics, and path planning (RRT).<br>Robots used: <strong>UR5e</strong>, <strong>Franka Emika</strong>.</p>
+          <a class="overview-link" href="applied-robotics/">View project →</a>
         </div>
-        <span class="year">2023</span>
-      </a>
-      <a class="project-row reveal" href="digital-manufacturing/">
-        <img src="../media/portfolio/digital-manufacturing.png" alt="Digital Manufacturing">
-        <div>
-          <h2>Digital Manufacturing</h2>
-          <p>Generative design, topology optimization, and additive manufacturing.</p>
+      </article>
+      <article class="showcase-row reveal">
+        <a class="showcase-media" href="digital-manufacturing/" tabindex="-1" aria-hidden="true">
+          <img src="../media/home/highlight-digital-manufacturing.png" alt="Digital Manufacturing" loading="lazy">
+        </a>
+        <div class="showcase-copy">
+          <p class="overview-year">2022–2023</p>
+          <h2><a href="digital-manufacturing/">Digital Manufacturing</a></h2>
+          <p>A collection of projects exploring <strong>generative design, topology optimization, additive manufacturing,</strong> and more.</p>
+          <a class="overview-link" href="digital-manufacturing/">View project →</a>
         </div>
-        <span class="year">2022–2023</span>
-      </a>
+      </article>
     </div>
 
   </main>
@@ -102,6 +117,6 @@
       <p>© Joaquin Palacios · Robotics · Columbia University / <a href="https://roam.me.columbia.edu/" rel="noopener noreferrer">ROAM Lab</a></p>
     </div>
   </footer>
-  <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/main.js?v=7d8d8bed"></script>
 </body>
 </html>

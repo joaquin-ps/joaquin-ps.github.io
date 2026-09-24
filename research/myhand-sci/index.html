@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../../assets/css/styles.css">
+  <link rel="stylesheet" href="../../assets/css/styles.css?v=37280140">
 </head>
 <body>
   <a class="skip-link" href="#content">Skip to content</a>
@@ -17,7 +17,7 @@
       <a class="brand" href="../../">Joaquin Palacios</a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
       <nav class="nav" id="site-nav" aria-label="Primary">
-        <a href="../../publications/">Publications</a>
+        <a href="../../#publications">Publications</a>
         <details>
           <summary>Research</summary>
           <div class="submenu">
@@ -47,33 +47,43 @@
     <header class="page-hero">
       <p class="crumb"><a href="../../">Home</a> / <a href="../../research/">Research</a> / MyHand-SCI</p>
       <h1>MyHand-SCI</h1>
-      <p class="tagline">A wearable robot that provides active grasping assistance for individuals with spinal cord injuries (SCI).</p>
     </header>
-    <dl class="meta-grid">
-    <div class="meta"><dt>Research area</dt><dd>Assistive robotics</dd></div>
-    <div class="meta"><dt>Contribution</dt><dd>Mechanical design, firmware, experiment design</dd></div>
-    <div class="meta"><dt>Years</dt><dd>2022 – 2023</dd></div>
-    <div class="meta"><dt>Collaborators</dt><dd>Alexandra Deli-Ivanov, Ava Chen, Lauren Winterbottom, Dawn M. Nilsen, Joel Stein, <a href="https://www.me.columbia.edu/faculty/matei-ciocarlie" rel="noopener noreferrer">Matei Ciocarlie</a></dd></div>
-  </dl>
-    <div class="prose reveal">
-
-      <p>For MyHand-SCI we adopted a philosophy of augmenting, rather than overshadowing, an individual’s residual motor skills.
-      The device aims to leverage the <strong>tenodesis grasp</strong>, a compensatory grasping pattern used by individuals with C5–C6 injuries, as a user control modality.</p>
-      <p>This can make the device more intuitive, give the user more agency and direct feedback, and encourage adoption.</p>
-      <h2>Publications</h2>
-      <ul>
-        <li>Journal paper, T-MRB (Nov 2024)</li>
-        <li>Workshop abstract, IROS 2023 — spotlight and poster at the Assistive Robots for Citizens Workshop</li>
-      </ul>
-      <p><a href="https://www.youtube.com/watch?v=SEi8ZkJe4dQ" rel="noopener noreferrer">Watch the demo on YouTube</a></p>
-
+    <div class="pp-hero reveal">
+      <iframe class="pp-embed" src="https://www.youtube-nocookie.com/embed/SEi8ZkJe4dQ" title="MyHand SCI – A Robotic Hand Orthosis for Spinal Cord Injury" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen></iframe>
     </div>
-    <section class="section reveal">
-      <h2 style="font-family:var(--font-display);letter-spacing:-0.02em;margin:0 0 1rem">Gallery</h2>
-      <div class="gallery wide">
-<figure><img src="../../media/myhand-sci/device.png" alt="MyHand-SCI device" loading="lazy"><figcaption>MyHand-SCI device</figcaption></figure>
+    <div class="pp-intro reveal">
+      <div class="pp-intro-copy">
+        <p class="pp-lead">A <strong>wearable robot</strong> that provides <strong>active grasping assistance</strong> for individuals with Spinal Cord Injuries (SCI).</p>
+        <p class="pp-label">Description:</p>
+        <p>For the MyHand-SCI we adopted a philosophy of augmenting, rather than overshadowing, an individual’s residual motor skills. The MyHand-SCI aims to leverage the <a href="https://en.wikipedia.org/wiki/Tenodesis_grasp" rel="noopener noreferrer">tenodesis grasp</a>, a compensatory grasping pattern utilized by individuals with C5–C6 injuries, as a user control modality.</p>
+        <p>We believe this can make the device more intuitive for this population, give the user more agency and direct feedback, and thus encourage user adoption.</p>
       </div>
-    </section>
+      <dl class="pp-meta">
+        <div><dt>Research Area:</dt><dd><span>Assistive Robotics</span></dd></div>
+        <div><dt>Technical Contribution:</dt><dd><span>Mechanical Design, Firmware Implementation, Experiment Design</span></dd></div>
+        <div><dt>Years:</dt><dd><span>2022 – 2023</span></dd></div>
+        <div><dt>Collaborators:</dt><dd><span class="pp-name">Alexandra Deli-Ivanov</span>, <span class="pp-name">Ava Chen</span>, <span class="pp-name">Lauren Winterbottom</span>, <span class="pp-name">Dawn M. Nilsen</span>, <span class="pp-name">Joel Stein</span>, and <span class="pp-name"><a href="https://www.me.columbia.edu/faculty/matei-ciocarlie" rel="noopener noreferrer">Matei Ciocarlie</a></span></dd></div>
+      </dl>
+    </div>
+    <div class="pp-body">
+      <section class="pp-section reveal">
+        <div class="pp-split media-left">
+          <div class="pp-text">
+        <h2 class="pp-h2">Publications</h2>
+            <p><a href="https://arxiv.org/abs/2402.08020" rel="noopener noreferrer">Journal paper</a>, T-MRB [Nov, 2024]</p>
+            <p><a href="../../#publications">Workshop abstract</a>, <strong>IROS 2023!</strong></p>
+            <ul>
+              <li>I gave a spotlight presentation and poster presentation at the <em>Assistive Robots for Citizens Workshop</em> at <em>IROS 2023</em>.</li>
+            </ul>
+          </div>
+          <div class="pp-split-media">
+        <figure class="pp-fig">
+          <img src="../../media/myhand-sci/device.png" alt="MyHand-SCI device with grasp, maintain, and release control modes" loading="lazy">
+        </figure>
+          </div>
+        </div>
+      </section>
+    </div>
 
   </main>
   <footer class="site-footer">
@@ -85,6 +95,6 @@
       <p>© Joaquin Palacios · Robotics · Columbia University / <a href="https://roam.me.columbia.edu/" rel="noopener noreferrer">ROAM Lab</a></p>
     </div>
   </footer>
-  <script src="../../assets/js/main.js"></script>
+  <script src="../../assets/js/main.js?v=7d8d8bed"></script>
 </body>
 </html>

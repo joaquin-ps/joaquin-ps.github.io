@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../../assets/css/styles.css">
+  <link rel="stylesheet" href="../../assets/css/styles.css?v=37280140">
 </head>
 <body>
   <a class="skip-link" href="#content">Skip to content</a>
@@ -17,7 +17,7 @@
       <a class="brand" href="../../">Joaquin Palacios</a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
       <nav class="nav" id="site-nav" aria-label="Primary">
-        <a href="../../publications/">Publications</a>
+        <a href="../../#publications">Publications</a>
         <details>
           <summary>Research</summary>
           <div class="submenu">
@@ -47,29 +47,51 @@
     <header class="page-hero">
       <p class="crumb"><a href="../../">Home</a> / <a href="../../portfolio/">Portfolio</a> / Crab.io</p>
       <h1>Crab.io</h1>
-      <p class="tagline">A quadruped robot known for being cute and fast.</p>
     </header>
-    <dl class="meta-grid">
-    <div class="meta"><dt>Area</dt><dd>Robotic locomotion</dd></div>
-    <div class="meta"><dt>Contribution</dt><dd>Mechatronics design; firmware</dd></div>
-    <div class="meta"><dt>Year</dt><dd>2022</dd></div>
-    <div class="meta"><dt>Context</dt><dd>Robotics Studio, Columbia University — with Valentina Gonzalez</dd></div>
-  </dl>
-    <div class="prose reveal">
-
-      <p>Designed and built as part of Columbia’s Robotics Studio course. Topology optimization kept the robot lightweight for speed.</p>
-
+    <div class="pp-hero reveal">
+      <video src="../../media/crab-io/walking-demo.mp4" controls playsinline preload="metadata" aria-label="Crab.io walking"></video>
     </div>
-    <section class="section reveal">
-      <h2 style="font-family:var(--font-display);letter-spacing:-0.02em;margin:0 0 1rem">Gallery</h2>
-      <div class="gallery wide">
-<figure><img src="../../media/crab-io/render.png" alt="Crab.io render" loading="lazy"><figcaption>Crab.io render</figcaption></figure>
-<figure><img src="../../media/crab-io/topology-optimized-leg.jpg" alt="Topology-optimized leg" loading="lazy"><figcaption>Topology-optimized leg</figcaption></figure>
-<figure><img src="../../media/crab-io/gait.png" alt="Gait" loading="lazy"><figcaption>Gait</figcaption></figure>
-<figure><video controls playsinline preload="metadata" src="../../media/crab-io/walking-demo.mp4"></video><figcaption>Walking demo</figcaption></figure>
-<figure><video controls playsinline preload="metadata" src="../../media/crab-io/locomotion-demo.mp4"></video><figcaption>Locomotion demo</figcaption></figure>
+    <div class="pp-intro reveal">
+      <div class="pp-intro-copy">
+        <p class="pp-lead">A <strong>quadruped robot</strong> known for being cute and being fast!</p>
+        <p class="pp-label">Description:</p>
+        <p>As part of the Robotics Studio course at Columbia University, my partner Valentina Gonzalez and I designed and built this unique walking robot.</p>
       </div>
-    </section>
+      <dl class="pp-meta">
+        <div><dt>Area:</dt><dd><span>Robotic Locomotion</span></dd></div>
+        <div><dt>Technical Contribution:</dt><dd><span>Mechatronics Design</span><span>Software (Firmware Implementation)</span></dd></div>
+        <div><dt>Year:</dt><dd><span>2022</span></dd></div>
+      </dl>
+    </div>
+    <div class="pp-body">
+      <section class="pp-section reveal">
+        <div class="pp-split">
+          <div class="pp-text">
+        <h2 class="pp-h2">Topology Optimization</h2>
+            <p>To go fast, crab.io had to be light, and topology optimization allowed us to keep the robot lightweight!</p>
+          </div>
+          <div class="pp-split-media">
+        <figure class="pp-fig">
+          <img src="../../media/crab-io/topology-optimized-leg.jpg" alt="Topology-optimized leg" loading="lazy">
+        </figure>
+          </div>
+        </div>
+      </section>
+      <section class="pp-section reveal">
+        <h2 class="pp-h2 center">Gallery</h2>
+        <div class="pp-stack pp-narrow">
+        <figure class="pp-fig">
+          <img src="../../media/crab-io/render.png" alt="Crab.io render" loading="lazy">
+        </figure>
+        <figure class="pp-fig">
+          <video src="../../media/crab-io/locomotion-demo.mp4" controls playsinline preload="metadata" aria-label="Crab.io locomotion demo"></video>
+        </figure>
+        <figure class="pp-fig">
+          <img src="../../media/crab-io/gait.png" alt="Gait diagram" loading="lazy">
+        </figure>
+        </div>
+      </section>
+    </div>
 
   </main>
   <footer class="site-footer">
@@ -81,6 +103,6 @@
       <p>© Joaquin Palacios · Robotics · Columbia University / <a href="https://roam.me.columbia.edu/" rel="noopener noreferrer">ROAM Lab</a></p>
     </div>
   </footer>
-  <script src="../../assets/js/main.js"></script>
+  <script src="../../assets/js/main.js?v=7d8d8bed"></script>
 </body>
 </html>

@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../../assets/css/styles.css">
+  <link rel="stylesheet" href="../../assets/css/styles.css?v=37280140">
 </head>
 <body>
   <a class="skip-link" href="#content">Skip to content</a>
@@ -17,7 +17,7 @@
       <a class="brand" href="../../">Joaquin Palacios</a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
       <nav class="nav" id="site-nav" aria-label="Primary">
-        <a href="../../publications/">Publications</a>
+        <a href="../../#publications">Publications</a>
         <details>
           <summary>Research</summary>
           <div class="submenu">
@@ -47,30 +47,36 @@
     <header class="page-hero">
       <p class="crumb"><a href="../../">Home</a> / <a href="../../portfolio/">Portfolio</a> / Button-Pressing Machine</p>
       <h1>Button-Pressing Machine</h1>
-      <p class="tagline">An exploration of mechatronics, machine design, controls, and machining.</p>
     </header>
-    <dl class="meta-grid">
-    <div class="meta"><dt>Area</dt><dd>Mechatronics</dd></div>
-    <div class="meta"><dt>Contribution</dt><dd>Mechanical design and firmware</dd></div>
-    <div class="meta"><dt>Year</dt><dd>2022</dd></div>
-    <div class="meta"><dt>Collaborators</dt><dd>Valentina Gonzalez, Siddhanth Lath, Georgios Thomakos, Aiman Najah</dd></div>
-  </dl>
-    <div class="prose reveal">
-
-      <p>In an arcade-style button-pressing game, a four-bar linkage with a solenoid presses buttons as quickly as possible.
-      A PID controller drives rapid motion between buttons.</p>
-      <p>Responsibilities included Arduino firmware and gain tuning, four-bar linkage design for the required trajectory,
-      and manufacturing aluminum links via waterjet cutting and CNC milling.</p>
-
+    <div class="pp-hero reveal">
+      <video src="../../media/button-pressing-machine/machine-in-action.mp4" controls playsinline preload="metadata" aria-label="Button-pressing machine in action"></video>
     </div>
-    <section class="section reveal">
-      <h2 style="font-family:var(--font-display);letter-spacing:-0.02em;margin:0 0 1rem">Gallery</h2>
-      <div class="gallery wide">
-<figure><img src="../../media/button-pressing-machine/mechanism-closeup.png" alt="Mechanism close-up" loading="lazy"><figcaption>Mechanism close-up</figcaption></figure>
-<figure><img src="../../media/button-pressing-machine/full-machine.jpg" alt="Full machine" loading="lazy"><figcaption>Full machine</figcaption></figure>
-<figure><video controls playsinline preload="metadata" src="../../media/button-pressing-machine/machine-in-action.mp4"></video><figcaption>Machine in action</figcaption></figure>
+    <div class="pp-intro reveal">
+      <div class="pp-intro-copy">
+        <p class="pp-lead">An exploration of <strong>mechatronics, machine design, controls,</strong> and <strong>machining.</strong></p>
+        <p class="pp-label">Description:</p>
+        <p>In an arcade-style button pressing game, this device uses a four bar linkage equipped with a solenoid to press buttons as fast as possible. A PID controller makes it rapidly move between the different buttons.</p>
+        <p>I was responsible for coding the <strong>Arduino firmware</strong> and <strong>tuning the controller gains.</strong> I also <strong>designed the four bar linkage</strong>, ensuring a trajectory that reached all required positions, and helped in manufacturing the aluminum links, which involved <strong>waterjet cutting and CNC milling.</strong></p>
       </div>
-    </section>
+      <dl class="pp-meta">
+        <div><dt>Research Area:</dt><dd><span>Mechatronics</span></dd></div>
+        <div><dt>Technical Contribution:</dt><dd><span>Mechanical Design and Firmware Implementation</span></dd></div>
+        <div><dt>Year:</dt><dd><span>2022</span></dd></div>
+        <div><dt>Collaborators:</dt><dd><span class="pp-name">Valentina Gonzalez</span>, <span class="pp-name">Siddhanth Lath</span>, <span class="pp-name">Georgios Thomakos</span>, and <span class="pp-name">Aiman Najah</span></dd></div>
+      </dl>
+    </div>
+    <div class="pp-body">
+      <section class="pp-section reveal">
+        <div class="pp-grid" style="--cols:2">
+        <figure class="pp-fig">
+          <img src="../../media/button-pressing-machine/mechanism-closeup.png" alt="Four-bar linkage mechanism render" loading="lazy">
+        </figure>
+        <figure class="pp-fig">
+          <img src="../../media/button-pressing-machine/full-machine.jpg" alt="Machined button-pressing machine" loading="lazy">
+        </figure>
+        </div>
+      </section>
+    </div>
 
   </main>
   <footer class="site-footer">
@@ -82,6 +88,6 @@
       <p>© Joaquin Palacios · Robotics · Columbia University / <a href="https://roam.me.columbia.edu/" rel="noopener noreferrer">ROAM Lab</a></p>
     </div>
   </footer>
-  <script src="../../assets/js/main.js"></script>
+  <script src="../../assets/js/main.js?v=7d8d8bed"></script>
 </body>
 </html>

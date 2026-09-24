@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../../assets/css/styles.css">
+  <link rel="stylesheet" href="../../assets/css/styles.css?v=37280140">
 </head>
 <body>
   <a class="skip-link" href="#content">Skip to content</a>
@@ -17,7 +17,7 @@
       <a class="brand" href="../../">Joaquin Palacios</a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
       <nav class="nav" id="site-nav" aria-label="Primary">
-        <a href="../../publications/">Publications</a>
+        <a href="../../#publications">Publications</a>
         <details>
           <summary>Research</summary>
           <div class="submenu">
@@ -47,35 +47,70 @@
     <header class="page-hero">
       <p class="crumb"><a href="../../">Home</a> / <a href="../../portfolio/">Portfolio</a> / Digital Manufacturing</p>
       <h1>Digital Manufacturing</h1>
-      <p class="tagline">Projects exploring generative design, topology optimization, additive manufacturing, and more.</p>
     </header>
-    <dl class="meta-grid">
-    <div class="meta"><dt>Years</dt><dd>2022 – 2023</dd></div>
-    <div class="meta"><dt>Themes</dt><dd>Generative design · topology optimization · additive manufacturing</dd></div>
-  </dl>
-    <div class="prose reveal">
-
-      <p>Leveraging modern software and manufacturing to create art and produce novel designs.</p>
-      <h2>Topology optimization</h2>
-      <p>Lightweight robotic arm designed in Altair Inspire as an educational model for topology optimization.</p>
-      <h2>Generative design</h2>
-      <p>Code-generated designs for laser cutting, computerized embroidery, and additive food printing.</p>
-      <ul>
-        <li><strong>Fractal puzzles:</strong> MATLAB → SVG for laser-cut jigsaws with fractal rasters.</li>
-        <li><strong>Embroidery:</strong> Python → JEF files with Euler-spiral stems and parametric flowers.</li>
-        <li><strong>Food printing:</strong> Python → G-code for decorative icing patterns.</li>
-      </ul>
-
-    </div>
-    <section class="section reveal">
-      <h2 style="font-family:var(--font-display);letter-spacing:-0.02em;margin:0 0 1rem">Gallery</h2>
-      <div class="gallery wide">
-<figure><img src="../../media/digital-manufacturing/topology-optimized-arm.png" alt="Topology-optimized arm" loading="lazy"><figcaption>Topology-optimized arm</figcaption></figure>
-<figure><img src="../../media/digital-manufacturing/generative-design.png" alt="Generative design" loading="lazy"><figcaption>Generative design</figcaption></figure>
-<figure><img src="../../media/digital-manufacturing/generative-process.png" alt="Process screenshot" loading="lazy"><figcaption>Process screenshot</figcaption></figure>
-<figure><img src="../../media/digital-manufacturing/manufacturing-output.png" alt="Manufacturing output" loading="lazy"><figcaption>Manufacturing output</figcaption></figure>
+    <div class="pp-intro no-meta reveal">
+      <div class="pp-intro-copy">
+        <p class="pp-lead">A collection of projects exploring <strong>generative design, topology optimization, additive manufacturing</strong>, and more.</p>
+        <p>Leveraging modern software and manufacturing to create art and produce novel designs.</p>
       </div>
-    </section>
+    </div>
+    <div class="pp-body">
+      <section class="pp-section reveal">
+        <div class="pp-split">
+          <div class="pp-text">
+        <h3 class="pp-h2 pp-h3">Topology Optimization</h3>
+            <p>Designed a lightweight robotic arm using <a href="https://altair.com/inspire" rel="noopener noreferrer"><strong>Altair Inspire</strong></a> as an educational model to showcase how to perform <strong>Topology Optimization</strong> to improve mechanical designs.</p>
+          </div>
+          <div class="pp-split-media">
+        <figure class="pp-fig">
+          <img src="../../media/digital-manufacturing/topology-optimized-arm.png" alt="Topology-optimized robotic arm" loading="lazy">
+        </figure>
+          </div>
+        </div>
+      </section>
+      <section class="pp-section reveal">
+        <h2 class="pp-h2 center">Generative Design</h2>
+        <div class="pp-text center">
+          <p>Using code to generate designs for laser cutting, computerized embroidery, and additive food printing.</p>
+        </div>
+        <div class="pp-split">
+          <div class="pp-text">
+        <h3 class="pp-h2 pp-h3">Auto-Generated Fractal Puzzles</h3>
+            <p>Created a <strong>MATLAB</strong> script that takes in user inputs (dimensions, design parameters, size of stock) and outputs an <strong>SVG file</strong> encoding the instructions to laser cut a jigsaw puzzle.</p>
+            <p>A selection of fractals can be selected to raster onto the pieces, creating an almost impossible to decipher puzzle!</p>
+          </div>
+          <div class="pp-split-media">
+        <figure class="pp-fig">
+          <img src="../../media/digital-manufacturing/generative-design.png" alt="Fractal puzzle SVG and laser-cut pieces" loading="lazy">
+        </figure>
+          </div>
+        </div>
+        <div class="pp-split">
+          <div class="pp-text">
+        <h3 class="pp-h2 pp-h3">Auto-Generated Embroidery Patterns</h3>
+            <p>Created a <strong>Python</strong> script that takes in user size and color parameters and generates a <strong>JEF file</strong> with a pattern of flowers. The JEF file encodes a stitching pattern to decorate a garment using a Computerized Embroidery Machine.</p>
+            <p>The designs are made using mathematical functions, with <a href="https://en.wikipedia.org/wiki/Euler_spiral" rel="noopener noreferrer">Euler Spirals</a> as stems and <a href="https://demonstrations.wolfram.com/FlowerPetalsUsingParametricEquations/" rel="noopener noreferrer">parametric flowers</a>.</p>
+          </div>
+          <div class="pp-split-media">
+        <figure class="pp-fig">
+          <img src="../../media/digital-manufacturing/generative-process.png" alt="Embroidered flowers on a garment and the generated pattern" loading="lazy">
+        </figure>
+          </div>
+        </div>
+        <div class="pp-split">
+          <div class="pp-text">
+        <h3 class="pp-h2 pp-h3">Food Printing</h3>
+            <p>Created a <strong>Python</strong> script that takes in user parameters and generates <strong>G-code</strong> for a food printer.</p>
+            <p>The designs can be used as decorative icing patterns for cookies and cakes.</p>
+          </div>
+          <div class="pp-split-media">
+        <figure class="pp-fig">
+          <img src="../../media/digital-manufacturing/manufacturing-output.png" alt="Printed chocolate icing pattern" loading="lazy">
+        </figure>
+          </div>
+        </div>
+      </section>
+    </div>
 
   </main>
   <footer class="site-footer">
@@ -87,6 +122,6 @@
       <p>© Joaquin Palacios · Robotics · Columbia University / <a href="https://roam.me.columbia.edu/" rel="noopener noreferrer">ROAM Lab</a></p>
     </div>
   </footer>
-  <script src="../../assets/js/main.js"></script>
+  <script src="../../assets/js/main.js?v=7d8d8bed"></script>
 </body>
 </html>

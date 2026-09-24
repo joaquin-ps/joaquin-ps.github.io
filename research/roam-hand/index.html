@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../../assets/css/styles.css">
+  <link rel="stylesheet" href="../../assets/css/styles.css?v=37280140">
 </head>
 <body>
   <a class="skip-link" href="#content">Skip to content</a>
@@ -17,7 +17,7 @@
       <a class="brand" href="../../">Joaquin Palacios</a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
       <nav class="nav" id="site-nav" aria-label="Primary">
-        <a href="../../publications/">Publications</a>
+        <a href="../../#publications">Publications</a>
         <details>
           <summary>Research</summary>
           <div class="submenu">
@@ -47,39 +47,73 @@
     <header class="page-hero">
       <p class="crumb"><a href="../../">Home</a> / <a href="../../research/">Research</a> / ROAM Hand 1</p>
       <h1>ROAM Hand 1</h1>
-      <p class="tagline">A tendon-driven robot hand exploring proprioception in dexterous manipulation.</p>
     </header>
-    <dl class="meta-grid">
-    <div class="meta"><dt>Research area</dt><dd>Robotic manipulation</dd></div>
-    <div class="meta"><dt>Contribution</dt><dd>Mechanical design; firmware implementation</dd></div>
-    <div class="meta"><dt>Year</dt><dd>2023</dd></div>
-  </dl>
-    <div class="prose reveal">
-
-      <p>The ROAM Hand was developed as a hardware testbed to explore how proprioception can augment other sensing modalities—
-      such as tactile sensing and computer vision—toward dexterous manipulation.</p>
-      <p>Fingers are driven by tendons connected to servos inside the palm, with a load cell measuring the reaction torque of each motor,
-      allowing joint torque sensing. This is robotic proprioception.</p>
-      <h2>My role</h2>
-      <ul>
-        <li>Redesign of tendon routing and pulley transmission to reduce friction and improve torque sensing, keeping joints uncoupled.</li>
-        <li>Firmware for position control and torque sensing, integrated with ROS.</li>
-      </ul>
-
+    <div class="pp-hero reveal">
+      <video src="../../media/roam-hand/hardware-demo.mp4" controls playsinline preload="metadata" aria-label="ROAM Hand hardware demo"></video>
     </div>
-    <section class="section reveal">
-      <h2 style="font-family:var(--font-display);letter-spacing:-0.02em;margin:0 0 1rem">Gallery</h2>
-      <div class="gallery wide">
-<figure><img src="../../media/roam-hand/render.png" alt="Render of ROAM Hand" loading="lazy"><figcaption>Render of ROAM Hand</figcaption></figure>
-<figure><img src="../../media/roam-hand/tendon-routing.png" alt="Tendon routing" loading="lazy"><figcaption>Tendon routing</figcaption></figure>
-<figure><img src="../../media/roam-hand/joint-pulleys.jpg" alt="Joint pulleys" loading="lazy"><figcaption>Joint pulleys</figcaption></figure>
-<figure><img src="../../media/roam-hand/manufacturing-detail.png" alt="Manufacturing detail" loading="lazy"><figcaption>Manufacturing detail</figcaption></figure>
-<figure><img src="../../media/roam-hand/roll-joint.jpg" alt="Roll joint / floating piece" loading="lazy"><figcaption>Roll joint / floating piece</figcaption></figure>
-<figure><img src="../../media/roam-hand/finger-motion-b.gif" alt="Motion GIF" loading="lazy"><figcaption>Motion GIF</figcaption></figure>
-<figure><img src="../../media/roam-hand/finger-motion-a.gif" alt="Motion GIF" loading="lazy"><figcaption>Motion GIF</figcaption></figure>
-<figure><video controls playsinline preload="metadata" src="../../media/roam-hand/hardware-demo.mp4"></video><figcaption>Hardware video</figcaption></figure>
+    <div class="pp-intro reveal">
+      <div class="pp-intro-copy">
+        <p class="pp-lead">A tendon-driven robot hand, exploring <em>proprioception</em> in <strong>dexterous manipulation.</strong></p>
+        <p class="pp-label">Description:</p>
+        <p>The ROAM Hand was developed as a hardware testbed to explore how <em>proprioception</em> can augment other sensing modalities, like <a href="https://roam.me.columbia.edu/research-projects/tactile-sensing" rel="noopener noreferrer">tactile sensing</a> and computer vision, in an effort to achieve dexterous manipulation.</p>
+        <p>The fingers are driven by tendons connected to servos inside the palm, with a load cell measuring the reaction torque of each motor, allowing us to sense the torque at each joint. This is robotic <em>proprioception</em>.</p>
       </div>
-    </section>
+      <dl class="pp-meta">
+        <div><dt>Research Area:</dt><dd><span>Robotic Manipulation</span></dd></div>
+        <div><dt>Technical Contributions:</dt><dd><span>Mechanical Design</span><span>Firmware Implementation</span></dd></div>
+        <div><dt>Year:</dt><dd><span>2023</span></dd></div>
+      </dl>
+    </div>
+    <div class="pp-body">
+      <section class="pp-section reveal">
+        <div class="pp-split">
+          <div class="pp-text">
+        <h2 class="pp-h2">My Role</h2>
+            <p>Redesign of tendon routing and pulley transmission to reduce friction and improve torque sensing. A key challenge I had to overcome was routing tendons in such a way each joint remains uncoupled.</p>
+            <p>Implementing firmware for position control and torque sensing. Integrating with ROS architecture.</p>
+          </div>
+          <div class="pp-split-media">
+        <figure class="pp-fig">
+          <img src="../../media/roam-hand/tendon-routing.png" alt="Tendon routing diagrams a–d" loading="lazy">
+        </figure>
+          </div>
+        </div>
+      </section>
+      <section class="pp-section reveal">
+        <h2 class="pp-h2">Gallery</h2>
+        <div class="pp-grid pp-grid-2-1">
+        <figure class="pp-fig">
+          <img src="../../media/roam-hand/joint-pulleys.jpg" alt="Tendon routing for proximal and distal links" loading="lazy">
+          <figcaption>Tendon routing for proximal and distal links.</figcaption>
+        </figure>
+        <figure class="pp-fig">
+          <img src="../../media/roam-hand/render.png" alt="Render of ROAM Hand" loading="lazy">
+          <figcaption>Render of ROAM Hand.</figcaption>
+        </figure>
+        </div>
+        <div class="pp-grid" style="--cols:2">
+        <div class="pp-stack">
+        <figure class="pp-fig">
+          <img src="../../media/roam-hand/manufacturing-detail.png" alt="Joint pulley diagrams" loading="lazy">
+          <figcaption><strong>Joint Pulleys:</strong> The distal tendon has to run exactly through the center of the proximal joint or else it creates joint coupling. To accomplish this, I placed the proximal tendon off the central axis, and added a second tendon to balance out the moments.</figcaption>
+        </figure>
+        <figure class="pp-fig">
+          <img src="../../media/roam-hand/roll-joint.jpg" alt="3D-printed finger components" loading="lazy">
+          <figcaption><strong>Manufacturing:</strong> 3D printing using FDM and SLA printers. Pulleys and teflon tubing added in critical friction locations.</figcaption>
+        </figure>
+        </div>
+        <div class="pp-stack">
+        <figure class="pp-fig">
+          <img src="../../media/roam-hand/finger-motion-b.gif" alt="Finger roll joint rotating" loading="lazy">
+          <figcaption><strong>Roll Joint:</strong> To allow the finger to rotate about the base without affecting the proximal and distal tendons, a «floating piece» sandwiched between bearings routes the tendons.</figcaption>
+        </figure>
+        <figure class="pp-fig">
+          <img src="../../media/roam-hand/finger-motion-a.gif" alt="Finger roll joint, front view" loading="lazy">
+        </figure>
+        </div>
+        </div>
+      </section>
+    </div>
 
   </main>
   <footer class="site-footer">
@@ -91,6 +125,6 @@
       <p>© Joaquin Palacios · Robotics · Columbia University / <a href="https://roam.me.columbia.edu/" rel="noopener noreferrer">ROAM Lab</a></p>
     </div>
   </footer>
-  <script src="../../assets/js/main.js"></script>
+  <script src="../../assets/js/main.js?v=7d8d8bed"></script>
 </body>
 </html>

@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./assets/css/styles.css">
+  <link rel="stylesheet" href="./assets/css/styles.css?v=37280140">
 </head>
 <body>
   <a class="skip-link" href="#content">Skip to content</a>
@@ -17,7 +17,7 @@
       <a class="brand" href="./">Joaquin Palacios</a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
       <nav class="nav" id="site-nav" aria-label="Primary">
-        <a href="./publications/">Publications</a>
+        <a href="./#publications">Publications</a>
         <details>
           <summary>Research</summary>
           <div class="submenu">
@@ -115,18 +115,174 @@
           </div>
         </a>
             </div>
+            <button class="feature-arrow feature-arrow-prev" type="button" data-carousel-prev aria-label="Previous highlight"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+            <button class="feature-arrow feature-arrow-next" type="button" data-carousel-next aria-label="Next highlight"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
           </div>
           <div class="feature-nav">
-            <button class="feature-btn" type="button" data-carousel-prev aria-label="Previous highlight">← Prev</button>
             <div class="feature-dots" data-carousel-dots>
           <button type="button" aria-label="Show slide 1" class="is-active" data-index="0"></button>
           <button type="button" aria-label="Show slide 2" data-index="1"></button>
           <button type="button" aria-label="Show slide 3" data-index="2"></button>
           <button type="button" aria-label="Show slide 4" data-index="3"></button>
             </div>
-            <button class="feature-btn" type="button" data-carousel-next aria-label="Next highlight">Next →</button>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section class="section section-publications" id="publications">
+      <div class="section-head">
+        <div>
+          <h2>Publications</h2>
+          <p>Dexterous manipulation, tactile sensing, and assistive robotics.</p>
+        </div>
+      </div>
+      <div class="pub-list">
+      <article class="pub reveal">
+        <figure class="pub-thumb">
+          <video src="media/home/highlight-ditto.mp4" muted autoplay loop playsinline aria-label="DITTO dexterous hand and motorized exoskeleton"></video>
+        </figure>
+        <div class="pub-body">
+          <h3 class="pub-title">DITTO: Dexterous Interface for Transparent TeleOperation</h3>
+          <p class="authors">
+            <strong>Joaquin Palacios*</strong>,
+            Katelyn Lee*,
+            Cheng Zhang,
+            Zhanpeng He,
+            <a href="https://www.me.columbia.edu/faculty/matei-ciocarlie" rel="noopener noreferrer">Matei Ciocarlie</a>
+          </p>
+          <p class="pub-note">*joint first authorship</p>
+          <p class="venue">arXiv preprint, 2026</p>
+          <p class="pub-links">
+            <a href="https://roamlab.github.io/ditto/" rel="noopener noreferrer">Project Page</a> <span aria-hidden="true">|</span>
+            <a href="https://arxiv.org/abs/2609.19196" rel="noopener noreferrer">arXiv</a>
+          </p>
+        </div>
+      </article>
+      <article class="pub reveal">
+        <figure class="pub-thumb has-hover">
+          <video src="media/publications/spikeatac.mp4" muted autoplay loop playsinline aria-label="SpikeATac tactile finger"></video>
+          <video class="pub-thumb-hover" src="media/publications/spikeatac-hover.mp4" muted autoplay loop playsinline aria-hidden="true"></video>
+        </figure>
+        <div class="pub-body">
+          <h3 class="pub-title">SpikeATac: A Multimodal Tactile Finger with Taxelized Dynamic Sensing for Dexterous Manipulation</h3>
+          <p class="authors">
+            Eric T. Chang*,
+            Peter Ballentine*,
+            Zhanpeng He*,
+            Do-Gon Kim,
+            Kai Jiang,
+            Hua-Hsuan Liang,
+            <strong>Joaquin Palacios</strong>,
+            William Wang,
+            Pedro Piacenza,
+            Ioannis Kymissis,
+            <a href="https://www.me.columbia.edu/faculty/matei-ciocarlie" rel="noopener noreferrer">Matei Ciocarlie</a>
+          </p>
+          <p class="pub-note">*joint first authorship</p>
+          <p class="venue">IEEE International Conference on Robotics and Automation (ICRA), 2026</p>
+          <p class="pub-links">
+            <a href="https://roamlab.github.io/spikeatac/" rel="noopener noreferrer">Project Page</a> <span aria-hidden="true">|</span>
+            <a href="https://arxiv.org/abs/2510.27048" rel="noopener noreferrer">arXiv</a> <span aria-hidden="true">|</span>
+            <a href="https://www.wsj.com/tech/the-hands-problem-holding-back-the-humanoid-revolution-c1aa6123" rel="noopener noreferrer">WSJ Coverage</a>
+          </p>
+        </div>
+      </article>
+      <article class="pub reveal">
+        <figure class="pub-thumb pub-thumb--padded">
+          <img src="media/publications/reciprocal-learning.jpg" alt="Reciprocal learning loop: EMG data feeds an intent classifier whose predictions are shown to the user on LED progress bars" loading="lazy">
+        </figure>
+        <div class="pub-body">
+          <h3 class="pub-title">Reciprocal Learning of Intent Inferral with Augmented Visual Feedback for Stroke</h3>
+          <p class="authors">
+            Jingxi Xu*,
+            Ava Chen*,
+            Lauren Winterbottom,
+            <strong>Joaquin Palacios</strong>,
+            Preethika Chivukula,
+            Dawn M. Nilsen,
+            Joel Stein,
+            <a href="https://www.me.columbia.edu/faculty/matei-ciocarlie" rel="noopener noreferrer">Matei Ciocarlie</a>
+          </p>
+          <p class="pub-note">*equal contribution</p>
+          <p class="venue">IEEE International Conference on Rehabilitation Robotics (ICORR), 2025</p>
+          <p class="pub-links">
+            <a href="https://arxiv.org/abs/2412.07956" rel="noopener noreferrer">arXiv</a> <span aria-hidden="true">|</span>
+            <a href="media/publications/icorr-2025-poster.pdf">Poster (PDF)</a>
+          </p>
+        </div>
+      </article>
+      <article class="pub reveal">
+        <figure class="pub-thumb pub-thumb--padded">
+          <img src="media/publications/jif-demos.gif" alt="Human and robot manipulation demonstrations" loading="lazy">
+        </figure>
+        <div class="pub-body">
+          <h3 class="pub-title">Train Robots in a JIF: Joint Inverse and Forward Dynamics with Human and Robot Demonstrations</h3>
+          <p class="authors">
+            Gagan Khandate*,
+            Boxuan Wang*,
+            Sarah Park*,
+            Weizhe Ni,
+            <strong>Joaquin Palacios</strong>,
+            Kathryn Lampo,
+            Philippe Wu,
+            Rosh Ho,
+            Eric Chang,
+            <a href="https://www.me.columbia.edu/faculty/matei-ciocarlie" rel="noopener noreferrer">Matei Ciocarlie</a>
+          </p>
+          <p class="pub-note">*joint first authorship</p>
+          <p class="venue">arXiv preprint, 2025</p>
+          <p class="pub-links">
+            <a href="https://arxiv.org/abs/2503.12297" rel="noopener noreferrer">arXiv</a>
+          </p>
+        </div>
+      </article>
+      <article class="pub reveal">
+        <figure class="pub-thumb">
+          <img src="media/publications/myhand-sci-device.png" alt="MyHand-SCI device and grasp/maintain/release control diagram" loading="lazy">
+        </figure>
+        <div class="pub-body">
+          <h3 class="pub-title">Grasp Force Assistance via Throttle-based Wrist Angle Control on a Robotic Hand Orthosis for C6–C7 Spinal Cord Injury</h3>
+          <p class="authors">
+            <strong>Joaquin Palacios*</strong>,
+            Alexandra Deli-Ivanov*,
+            Ava Chen,
+            Lauren Winterbottom,
+            Dawn M. Nilsen,
+            Joel Stein,
+            <a href="https://www.me.columbia.edu/faculty/matei-ciocarlie" rel="noopener noreferrer">Matei Ciocarlie</a>
+          </p>
+          <p class="pub-note">*equal contribution</p>
+          <p class="venue">IEEE Transactions on Medical Robotics and Bionics (T-MRB), 2024</p>
+          <p class="pub-links">
+            <a href="https://pubmed.ncbi.nlm.nih.gov/40041101/" rel="noopener noreferrer">Paper</a> <span aria-hidden="true">|</span>
+            <a href="research/myhand-sci/">Project Page</a>
+          </p>
+        </div>
+      </article>
+      <article class="pub reveal">
+        <figure class="pub-thumb">
+          <img src="media/publications/myhand-sci-figure.jpg" alt="MyHand-SCI assisting a grasp of a small can" loading="lazy">
+        </figure>
+        <div class="pub-body">
+          <h3 class="pub-title">Towards Tenodesis-Modulated Control of an Assistive Hand Exoskeleton for SCI</h3>
+          <p class="authors">
+            <strong>Joaquin Palacios*</strong>,
+            Alexandra Deli-Ivanov*,
+            Ava Chen,
+            Lauren Winterbottom,
+            Dawn M. Nilsen,
+            Joel Stein,
+            <a href="https://www.me.columbia.edu/faculty/matei-ciocarlie" rel="noopener noreferrer">Matei Ciocarlie</a>
+          </p>
+          <p class="pub-note">*equal contribution</p>
+          <p class="venue">IROS 2023 Workshop on Assistive Robots for Citizens</p>
+          <p class="pub-links">
+            <a href="media/publications/iros-2023-workshop-paper.pdf">Paper (PDF)</a> <span aria-hidden="true">|</span>
+            <a href="media/publications/iros-2023-poster.pdf">Poster (PDF)</a>
+          </p>
+        </div>
+      </article>
       </div>
     </section>
 
@@ -206,14 +362,6 @@
 
     <section class="section">
       <div class="teaser-row">
-        <a class="teaser reveal" href="publications/">
-          <img class="teaser-thumb" src="media/home/cover-myhand-sci.jpg" alt="">
-          <div class="teaser-body">
-            <h3>Publications</h3>
-            <p>Journal and workshop papers on assistive hand exoskeletons for SCI.</p>
-            <span>Learn more →</span>
-          </div>
-        </a>
         <a class="teaser reveal" href="research/">
           <img class="teaser-thumb" src="media/home/cover-roam-hand.png" alt="">
           <div class="teaser-body">
@@ -243,6 +391,6 @@
       <p>© Joaquin Palacios · Robotics · Columbia University / <a href="https://roam.me.columbia.edu/" rel="noopener noreferrer">ROAM Lab</a></p>
     </div>
   </footer>
-  <script src="./assets/js/main.js"></script>
+  <script src="./assets/js/main.js?v=7d8d8bed"></script>
 </body>
 </html>

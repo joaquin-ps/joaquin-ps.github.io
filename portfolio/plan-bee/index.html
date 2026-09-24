@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../../assets/css/styles.css">
+  <link rel="stylesheet" href="../../assets/css/styles.css?v=37280140">
 </head>
 <body>
   <a class="skip-link" href="#content">Skip to content</a>
@@ -17,7 +17,7 @@
       <a class="brand" href="../../">Joaquin Palacios</a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
       <nav class="nav" id="site-nav" aria-label="Primary">
-        <a href="../../publications/">Publications</a>
+        <a href="../../#publications">Publications</a>
         <details>
           <summary>Research</summary>
           <div class="submenu">
@@ -47,45 +47,112 @@
     <header class="page-hero">
       <p class="crumb"><a href="../../">Home</a> / <a href="../../portfolio/">Portfolio</a> / Plan Bee</p>
       <h1>Plan Bee</h1>
-      <p class="tagline">An agricultural robot for pollination in enclosed vertical farms.</p>
     </header>
-    <dl class="meta-grid">
-    <div class="meta"><dt>Area</dt><dd>Agricultural robotics</dd></div>
-    <div class="meta"><dt>Contribution</dt><dd>Mechatronics; software (firmware, planning, computer vision)</dd></div>
-    <div class="meta"><dt>Year</dt><dd>2023</dd></div>
-    <div class="meta"><dt>Award</dt><dd>1st Place — Columbia Engineering 2023 Senior Design Expo</dd></div>
-    <div class="meta"><dt>Collaborators</dt><dd>Valentina Gonzalez, Siddhanth Lath, Georgios Thomakos, Aiman Najah</dd></div>
-  </dl>
-    <div class="prose reveal">
-
-      <p>Plan Bee is a five-degree-of-freedom robot with onboard computer vision and a rotating brush end-effector.
-      It identifies flowers in its workspace and pollinates them without humans or live bees, using an image segmentation network
-      and a depth camera to localize flowers and deploy pollen-transfer routines.</p>
-      <h2>The problem</h2>
-      <p>Vertical farming is resource-efficient, but enclosed environments remove natural pollinators such as insects and wind,
-      limiting which crops can be grown.</p>
-      <h2>Personal contributions</h2>
-      <ul>
-        <li><strong>Software:</strong> flower detection model; depth-camera localization; kinematics, cartesian control, and path planning.</li>
-        <li><strong>Electronics &amp; firmware:</strong> Arduino motor control; stepper/servo actuation; wiring.</li>
-        <li><strong>Hardware:</strong> gantry-style 5-DOF kinematics; lead-screw actuators; CAD; manufacturing and assembly.</li>
-      </ul>
-
+    <div class="pp-hero reveal">
+      <video src="../../media/plan-bee/demo-broll.mp4" controls playsinline preload="metadata" aria-label="Plan Bee demo"></video>
     </div>
-    <section class="section reveal">
-      <h2 style="font-family:var(--font-display);letter-spacing:-0.02em;margin:0 0 1rem">Gallery</h2>
-      <div class="gallery wide">
-<figure><img src="../../media/plan-bee/vertical-farm.webp" alt="Vertical farming context" loading="lazy"><figcaption>Vertical farming context</figcaption></figure>
-<figure><img src="../../media/plan-bee/full-system.png" alt="Full system" loading="lazy"><figcaption>Full system</figcaption></figure>
-<figure><img src="../../media/plan-bee/system-view.png" alt="System view" loading="lazy"><figcaption>System view</figcaption></figure>
-<figure><img src="../../media/plan-bee/end-effector.png" alt="End-effector" loading="lazy"><figcaption>End-effector</figcaption></figure>
-<figure><img src="../../media/plan-bee/workspace.png" alt="Workspace" loading="lazy"><figcaption>Workspace</figcaption></figure>
-<figure><img src="../../media/plan-bee/cad-design.png" alt="CAD / design" loading="lazy"><figcaption>CAD / design</figcaption></figure>
-<figure><img src="../../media/plan-bee/team-at-expo.jpg" alt="Team at Senior Design Expo" loading="lazy"><figcaption>Team at Senior Design Expo</figcaption></figure>
-<figure><video controls playsinline preload="metadata" src="../../media/plan-bee/pollination-routine.mp4"></video><figcaption>Pollination routine</figcaption></figure>
-<figure><video controls playsinline preload="metadata" src="../../media/plan-bee/demo-broll.mp4"></video><figcaption>Demo b-roll</figcaption></figure>
+    <div class="pp-intro reveal">
+      <div class="pp-intro-copy">
+        <p class="pp-lead">An <strong>agricultural robot</strong> intended to increase the diversity of crop production in vertical farms by enabling pollination in enclosed environments.</p>
+        <p class="pp-label">Description:</p>
+        <p>Plan Bee is a five degree of freedom robot with on-board computer vision and a rotating brush end-effector. Plan Bee successfully identifies flowers within its workplace and pollinates them without the need for humans or live bees. It leverages an image segmentation neural network and a depth perception camera to identify flowers, determine their location, and automatically plan and deploy pollen transfer routines.</p>
+        <p><strong>Awards:</strong> 1st Place Winners at Columbia Engineering 2023 Senior Design Expo!</p>
       </div>
-    </section>
+      <dl class="pp-meta">
+        <div><dt>Research Area:</dt><dd><span>Agricultural Robotics</span></dd></div>
+        <div><dt>Technical Contribution:</dt><dd><span>Mechatronics Design</span><span>Software (Firmware, Path Planning, Computer Vision, &amp; more)</span></dd></div>
+        <div><dt>Year:</dt><dd><span>2023</span></dd></div>
+        <div><dt>Collaborators:</dt><dd><span class="pp-name">Valentina Gonzalez</span>, <span class="pp-name">Siddhanth Lath</span>, <span class="pp-name">Georgios Thomakos</span>, and <span class="pp-name">Aiman Najah</span></dd></div>
+      </dl>
+    </div>
+    <div class="pp-body">
+      <section class="pp-section reveal">
+        <div class="pp-split">
+          <div class="pp-text">
+        <h2 class="pp-h2">The Problem</h2>
+            <p>Vertical farming presents a sustainable, resource-efficient alternative to conventional agricultural practices, but growing crops in an enclosed environment removes access to natural pollinators such as insects and wind.</p>
+            <p>Many fruits and vegetables that are staples of our diets require pollination to grow, thus the absence of pollinators limits the variety of crops vertical farming can produce.</p>
+          </div>
+          <div class="pp-split-media">
+        <figure class="pp-fig">
+          <img src="../../media/plan-bee/vertical-farm.webp" alt="Rows of crops in a vertical farm" loading="lazy">
+        </figure>
+          </div>
+        </div>
+      </section>
+      <section class="pp-section reveal">
+        <h2 class="pp-h2 center">Our Solution</h2>
+        <figure class="pp-fig">
+          <video src="../../media/plan-bee/pollination-routine.mp4" controls playsinline preload="metadata" aria-label="Plan Bee pollination routine"></video>
+          <figcaption>Pollination Routine (x2 speed)</figcaption>
+        </figure>
+      </section>
+      <section class="pp-section reveal">
+        <h2 class="pp-h2 center">Personal Contributions</h2>
+        <h3 class="pp-h2 center pp-h3">Software</h3>
+        <div class="pp-text center">
+          <p>As the software developer for this project, my responsibilities included:</p>
+        </div>
+        <div class="pp-grid" style="--cols:3">
+        <figure class="pp-fig">
+          <img src="../../media/plan-bee/system-view.png" alt="Flower detections on the plant" loading="lazy">
+          <figcaption><strong>Machine Learning:</strong> Implementing and training flower detection model.</figcaption>
+        </figure>
+        <figure class="pp-fig">
+          <img src="../../media/plan-bee/end-effector.png" alt="Depth camera view with flower coordinates" loading="lazy">
+          <figcaption><strong>Computer Vision:</strong> Interfacing with the depth perception camera to extract flower locations.</figcaption>
+        </figure>
+        <figure class="pp-fig">
+          <img src="../../media/plan-bee/workspace.png" alt="3D plot of the planned path" loading="lazy">
+          <figcaption><strong>Robotics Planning:</strong> Writing software for kinematic analysis, cartesian control, and path planning.</figcaption>
+        </figure>
+        </div>
+      </section>
+      <section class="pp-section reveal">
+        <div class="pp-split media-left">
+          <div class="pp-text">
+        <h3 class="pp-h2 pp-h3">Electronics &amp; Firmware</h3>
+            <p>I was also in charge of the electronics and firmware for the system, including:</p>
+            <ul>
+              <li>Embedded firmware for lower-level motor control (Arduino).</li>
+              <li>Selecting motors and motor drivers (actuation scheme consisting of a mix of stepper motors and servos).</li>
+              <li>Electronics design and wire management.</li>
+            </ul>
+          </div>
+          <div class="pp-split-media">
+        <figure class="pp-fig">
+          <img src="../../media/plan-bee/full-system.png" alt="Plan Bee robot with its electronics box" loading="lazy">
+        </figure>
+          </div>
+        </div>
+      </section>
+      <section class="pp-section reveal">
+        <div class="pp-split">
+          <div class="pp-text">
+        <h3 class="pp-h2 pp-h3">Hardware</h3>
+            <p>I also contributed to the hardware, including:</p>
+            <ul>
+              <li>Selecting robot kinematics suited for this task (gantry based, 5 DOF leveraging flowers’ axial symmetry).</li>
+              <li>Designing and modelling lead screw actuators.</li>
+              <li>Creating CAD for multiple components.</li>
+              <li>Manufacturing and assembly.</li>
+            </ul>
+          </div>
+          <div class="pp-split-media">
+        <figure class="pp-fig">
+          <img src="../../media/plan-bee/cad-design.png" alt="CAD of a large-scale Plan Bee over a grow bed" loading="lazy">
+          <figcaption>In real application, we envision a large scale version of our robot.</figcaption>
+        </figure>
+          </div>
+        </div>
+      </section>
+      <section class="pp-section reveal">
+        <h2 class="pp-h2 center">Our Team</h2>
+        <figure class="pp-fig pp-medium">
+          <img src="../../media/plan-bee/team-at-expo.jpg" alt="The Plan Bee team at the Senior Design Expo" loading="lazy">
+        </figure>
+      </section>
+    </div>
 
   </main>
   <footer class="site-footer">
@@ -97,6 +164,6 @@
       <p>© Joaquin Palacios · Robotics · Columbia University / <a href="https://roam.me.columbia.edu/" rel="noopener noreferrer">ROAM Lab</a></p>
     </div>
   </footer>
-  <script src="../../assets/js/main.js"></script>
+  <script src="../../assets/js/main.js?v=7d8d8bed"></script>
 </body>
 </html>

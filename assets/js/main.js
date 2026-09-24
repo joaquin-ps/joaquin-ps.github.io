@@ -74,14 +74,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const show = (i) => {
       const len = slides.length;
-      index = ((i % len) + len) % len;
+      // Stop at the ends; arrows hide when there is nothing further that way.
+      index = Math.min(Math.max(i, 0), len - 1);
       slides.forEach((slide, n) => {
-        const prevIdx = (index - 1 + len) % len;
-        const nextIdx = (index + 1) % len;
         slide.classList.toggle("is-active", n === index);
-        slide.classList.toggle("is-prev", n === prevIdx);
-        slide.classList.toggle("is-next", n === nextIdx);
+        slide.classList.toggle("is-prev", n === index - 1);
+        slide.classList.toggle("is-next", n === index + 1);
       });
+      const atStart = index === 0;
+      const atEnd = index === len - 1;
+      prev?.classList.toggle("is-hidden", atStart);
+      next?.classList.toggle("is-hidden", atEnd);
+      prev?.setAttribute("aria-hidden", atStart ? "true" : "false");
+      next?.setAttribute("aria-hidden", atEnd ? "true" : "false");
+      if (prev) prev.tabIndex = atStart ? -1 : 0;
+      if (next) next.tabIndex = atEnd ? -1 : 0;
       dots.forEach((dot, n) => {
         dot.classList.toggle("is-active", n === index);
       });

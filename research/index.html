@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="stylesheet" href="../assets/css/styles.css?v=37280140">
 </head>
 <body>
   <a class="skip-link" href="#content">Skip to content</a>
@@ -17,7 +17,7 @@
       <a class="brand" href="../">Joaquin Palacios</a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
       <nav class="nav" id="site-nav" aria-label="Primary">
-        <a href="../publications/">Publications</a>
+        <a href="../#publications">Publications</a>
         <details>
           <summary>Research</summary>
           <div class="submenu">
@@ -49,39 +49,50 @@
       <h1>Research</h1>
       <p class="tagline">Hardware and controls research in dexterous manipulation and assistive robotics at <a href="https://roam.me.columbia.edu/" rel="noopener noreferrer">ROAM Lab</a>.</p>
     </header>
-    <div class="project-list">
-      <a class="project-row reveal" href="https://roamlab.github.io/ditto/" rel="noopener noreferrer">
-        <video class="thumb-video" src="../media/research/ditto.mp4" autoplay muted loop playsinline preload="metadata" aria-label="DITTO"></video>
-        <div>
-          <h2>DITTO</h2>
+    <div class="research-grid">
+      <article class="research-card reveal">
+        <a class="research-media" href="https://roamlab.github.io/ditto/" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
+          <video src="../media/research/ditto.mp4" autoplay muted loop playsinline preload="metadata" aria-label="DITTO"></video>
+        </a>
+        <div class="research-copy">
+          <p class="overview-year">2025–</p>
+          <h2><a href="https://roamlab.github.io/ditto/" rel="noopener noreferrer">DITTO</a></h2>
           <p>Co-designed <strong>dexterous hand</strong> and kinematically equivalent <strong>motorized exoskeleton</strong> for <strong>both</strong> <em>handheld</em> data collection and <em>bilateral teleoperation</em> with <strong>joint-level force feedback</strong>.</p>
         </div>
-        <span class="year">2025–</span>
-      </a>
-      <a class="project-row reveal" href="roam-hand-3/">
-        <img src="../media/home/highlight-roam-hand-3.png" alt="ROAM Hand 3">
-        <div>
-          <h2>ROAM Hand 3</h2>
-          <p>Novel dexterous hand kinematics with 6-axis F/T fingertips, validated via reinforcement learning.</p>
+      </article>
+      <article class="research-card reveal">
+        <a class="research-media" href="roam-hand-3/" tabindex="-1" aria-hidden="true">
+          <img src="../media/home/highlight-roam-hand-3.png" alt="ROAM Hand 3" loading="lazy">
+        </a>
+        <div class="research-copy">
+          <p class="overview-year">2024–2025</p>
+          <h2><a href="roam-hand-3/">ROAM Hand 3</a></h2>
+          <p>Robot hand with 6-axis F/T sensorized fingertips and <strong>novel kinematics validated via RL policies</strong>.</p>
+          <p>Mechanical design and kinematic validation via reinforcement learning.</p>
         </div>
-        <span class="year">2024–2025</span>
-      </a>
-      <a class="project-row reveal" href="myhand-sci/">
-        <img src="../media/research/myhand-sci.png" alt="MyHand-SCI">
-        <div>
-          <h2>MyHand-SCI</h2>
-          <p>Wearable robot for grasping assistance using tenodesis-based user control for people with SCI.</p>
+      </article>
+      <article class="research-card reveal">
+        <a class="research-media" href="myhand-sci/" tabindex="-1" aria-hidden="true">
+          <img src="../media/research/myhand-sci.png" alt="MyHand-SCI" loading="lazy">
+        </a>
+        <div class="research-copy">
+          <p class="overview-year">2022–2023</p>
+          <h2><a href="myhand-sci/">MyHand-SCI</a></h2>
+          <p>Creating a <strong>wearable robot</strong> to assist in grasping for individuals with <strong>Spinal Cord Injuries</strong>.</p>
+          <p>A study on <em>tenodesis</em>-based user control for grasping force modulation, promoting the development of intuitive assistive devices.</p>
         </div>
-        <span class="year">2022–2023</span>
-      </a>
-      <a class="project-row reveal" href="roam-hand/">
-        <img src="../media/research/roam-hand.png" alt="ROAM Hand 1">
-        <div>
-          <h2>ROAM Hand 1</h2>
-          <p>Tendon-driven robot hand exploring proprioception for dexterous manipulation.</p>
+      </article>
+      <article class="research-card reveal">
+        <a class="research-media" href="roam-hand/" tabindex="-1" aria-hidden="true">
+          <img src="../media/research/roam-hand.png" alt="ROAM Hand 1" loading="lazy">
+        </a>
+        <div class="research-copy">
+          <p class="overview-year">2023</p>
+          <h2><a href="roam-hand/">ROAM Hand 1</a></h2>
+          <p>Designing and building a robot hand to explore <em>proprioception</em> in dexterous robot manipulation.</p>
+          <p>Mechanical design and firmware implementation for torque control of a tendon-driven robot hand.</p>
         </div>
-        <span class="year">2023</span>
-      </a>
+      </article>
     </div>
 
   </main>
@@ -94,6 +105,6 @@
       <p>© Joaquin Palacios · Robotics · Columbia University / <a href="https://roam.me.columbia.edu/" rel="noopener noreferrer">ROAM Lab</a></p>
     </div>
   </footer>
-  <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/main.js?v=7d8d8bed"></script>
 </body>
 </html>
