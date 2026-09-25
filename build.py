@@ -11,6 +11,17 @@ LINKEDIN = "https://www.linkedin.com/in/joaquin-b-palacios"
 ROAM_LAB = "https://roam.me.columbia.edu/"
 MATEI = "https://www.me.columbia.edu/faculty/matei-ciocarlie"
 
+ICON_LINKEDIN = (
+    '<svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04'
+    '-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43'
+    'a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54'
+    'C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>'
+)
+ICON_EMAIL = (
+    '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" '
+    'stroke-linecap="round" stroke-linejoin="round"><rect x="1.5" y="4" width="21" height="16" rx="2.5"/><path d="m2 6.5 10 7 10-7"/></svg>'
+)
+
 ROAM_LAB_HTML = f'<a href="{ROAM_LAB}" rel="noopener noreferrer">ROAM Lab</a>'
 MATEI_HTML = f'<a href="{MATEI}" rel="noopener noreferrer">Matei Ciocarlie</a>'
 
@@ -25,8 +36,8 @@ PORTFOLIO_LINKS = [
     ("Plan Bee", "/portfolio/plan-bee/"),
     ("Crab.io", "/portfolio/crab-io/"),
     ("Button-Pressing Machine", "/portfolio/button-pressing-machine/"),
-    ("Applied Robotics", "/portfolio/applied-robotics/"),
     ("Digital Manufacturing", "/portfolio/digital-manufacturing/"),
+    ("Applied Robotics", "/portfolio/applied-robotics/"),
 ]
 
 
@@ -82,20 +93,18 @@ def shell(title: str, path: str, current: str, body: str, description: str = "")
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
       <nav class="nav" id="site-nav" aria-label="Primary">
         <a href="{prefix}#publications">Publications</a>
-        <details>
-          <summary>Research</summary>
+        <div class="nav-item has-menu">
+          <a class="nav-top" href="{prefix}research/"{cur("research")}>Research</a>
           <div class="submenu">
-            <a href="{prefix}research/"{cur("research")}>Overview</a>
 {research_items}
           </div>
-        </details>
-        <details>
-          <summary>Portfolio</summary>
+        </div>
+        <div class="nav-item has-menu">
+          <a class="nav-top" href="{prefix}portfolio/"{cur("portfolio")}>Portfolio</a>
           <div class="submenu">
-            <a href="{prefix}portfolio/"{cur("portfolio")}>Overview</a>
 {portfolio_items}
           </div>
-        </details>
+        </div>
       </nav>
     </div>
   </header>
@@ -229,8 +238,8 @@ def home() -> None:
         <div class="hero-actions">
           <a class="btn btn-primary" href="research/">Research</a>
           <a class="btn btn-ghost" href="portfolio/">Portfolio</a>
-          <a class="btn btn-ghost" href="{LINKEDIN}" rel="noopener noreferrer">LinkedIn</a>
-          <a class="btn btn-ghost" href="mailto:{EMAIL}">Email</a>
+          <a class="btn btn-ghost btn-icon" href="{LINKEDIN}" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">{ICON_LINKEDIN}</a>
+          <a class="btn btn-ghost btn-icon" href="mailto:{EMAIL}" aria-label="Email" title="Email">{ICON_EMAIL}</a>
         </div>
       </div>
       <div class="hero-media">
@@ -448,46 +457,53 @@ def overview_media(src: str, alt: str) -> str:
     return f'<img src="{src}" alt="{alt}" loading="lazy">'
 
 
+def overview_cards(items: list[tuple[str, str, str, str, str, str]], bare: frozenset[str] = frozenset()) -> str:
+    """Two-column card grid shared by the Research and Portfolio overviews.
+
+    Each item is (href, media, title, years, summary, detail); detail may be empty.
+    Titles in `bare` are transparent renders shown without the white media panel.
+    """
+    cards = []
+    for href, media, title, years, summary, detail in items:
+        rel = ' rel="noopener noreferrer"' if href.startswith("http") else ""
+        media_cls = "research-media bare" if title in bare else "research-media"
+        detail_html = f"\n          <p>{detail}</p>" if detail else ""
+        cards.append(f'''      <article class="research-card reveal">
+        <a class="{media_cls}" href="{href}"{rel} tabindex="-1" aria-hidden="true">
+          {overview_media(media, title)}
+        </a>
+        <div class="research-copy">
+          <p class="overview-year">{years}</p>
+          <h2><a href="{href}"{rel}>{title}</a></h2>
+          <p>{summary}</p>{detail_html}
+        </div>
+      </article>''')
+    return '    <div class="research-grid">\n' + "\n".join(cards) + "\n    </div>"
+
+
 def research_index() -> None:
-    # (href, media, title, years, summary, role); role may be empty.
     items = [
-        ("https://roamlab.github.io/ditto/", "../media/research/ditto.mp4", "DITTO", "2025–",
+        ("https://roamlab.github.io/ditto/", "../media/research/ditto.mp4", "DITTO", "2025–Ongoing",
          "Co-designed <strong>dexterous hand</strong> and kinematically equivalent <strong>motorized exoskeleton</strong> "
          "for <strong>both</strong> <em>handheld</em> data collection and <em>bilateral teleoperation</em> "
          "with <strong>joint-level force feedback</strong>.", ""),
         ("roam-hand-3/", "../media/home/highlight-roam-hand-3.png", "ROAM Hand 3", "2024–2025",
          "Robot hand with 6-axis F/T sensorized fingertips and <strong>novel kinematics validated via RL policies</strong>.",
          "Mechanical design and kinematic validation via reinforcement learning."),
-        ("myhand-sci/", "../media/research/myhand-sci.png", "MyHand-SCI", "2022–2023",
+        ("myhand-sci/", "../media/myhand-sci/device.png", "MyHand-SCI", "2022–2023",
          "Creating a <strong>wearable robot</strong> to assist in grasping for individuals with <strong>Spinal Cord Injuries</strong>.",
          "A study on <em>tenodesis</em>-based user control for grasping force modulation, promoting the development of intuitive assistive devices."),
         ("roam-hand/", "../media/research/roam-hand.png", "ROAM Hand 1", "2023",
          "Designing and building a robot hand to explore <em>proprioception</em> in dexterous robot manipulation.",
          "Mechanical design and firmware implementation for torque control of a tendon-driven robot hand."),
     ]
-    cards = []
-    for href, media, title, years, summary, role in items:
-        rel = ' rel="noopener noreferrer"' if href.startswith("http") else ""
-        role_html = f"\n          <p>{role}</p>" if role else ""
-        cards.append(f'''      <article class="research-card reveal">
-        <a class="research-media" href="{href}"{rel} tabindex="-1" aria-hidden="true">
-          {overview_media(media, title)}
-        </a>
-        <div class="research-copy">
-          <p class="overview-year">{years}</p>
-          <h2><a href="{href}"{rel}>{title}</a></h2>
-          <p>{summary}</p>{role_html}
-        </div>
-      </article>''')
     body = f"""
     <header class="page-hero">
       <p class="crumb"><a href="../">Home</a> / Research</p>
       <h1>Research</h1>
       <p class="tagline">Hardware and controls research in dexterous manipulation and assistive robotics at {ROAM_LAB_HTML}.</p>
     </header>
-    <div class="research-grid">
-{chr(10).join(cards)}
-    </div>
+{overview_cards(items, bare=frozenset({"ROAM Hand 3", "MyHand-SCI", "ROAM Hand 1"}))}
 """
     write("research/index.html", shell("Research — Joaquin Palacios", "research", "research", body))
 
@@ -495,40 +511,29 @@ def research_index() -> None:
 def portfolio_index() -> None:
     items = [
         ("plan-bee/", "../media/home/highlight-plan-bee.png", "Plan Bee", "2023",
-         "Developing a robot to automate <strong>crop pollination</strong> in vertical farms."),
+         "Developing a robot to automate <strong>crop pollination</strong> in vertical farms.",
+         "Mechatronics design and software: firmware, path planning, and computer vision."),
         ("crab-io/", "../media/home/highlight-crab-io.png", "Crab.io", "2022",
-         "A <strong>quadruped robot</strong> known for being cute and being fast!"),
+         "A <strong>quadruped robot</strong> known for being cute and being fast!",
+         "Mechatronics design and firmware implementation, built with Valentina Gonzalez in Columbia’s Robotics Studio."),
         ("button-pressing-machine/", "../media/home/highlight-button-pressing-machine.png", "Button-Pressing Machine", "2022",
-         "An exploration of <strong>mechatronics, machine design, controls,</strong> and <strong>machining</strong>."),
-        ("applied-robotics/", "../media/home/highlight-applied-robotics.png", "Applied Robotics", "2023",
-         "Projects in applied robotics, leveraging <strong>ROS 2</strong> to implement from scratch cartesian control, "
-         "inverse kinematics, and path planning (RRT).<br>Robots used: <strong>UR5e</strong>, <strong>Franka Emika</strong>."),
+         "An exploration of <strong>mechatronics, machine design, controls,</strong> and <strong>machining</strong>.",
+         "Mechanical design of the four-bar linkage and Arduino firmware with PID control."),
         ("digital-manufacturing/", "../media/home/highlight-digital-manufacturing.png", "Digital Manufacturing", "2022–2023",
-         "A collection of projects exploring <strong>generative design, topology optimization, additive manufacturing,</strong> and more."),
+         "A collection of projects exploring <strong>generative design, topology optimization, additive manufacturing,</strong> and more.",
+         "Leveraging modern software and manufacturing to create art and produce novel designs."),
+        ("applied-robotics/", "../media/home/highlight-applied-robotics-transparent.png", "Applied Robotics", "2023",
+         "Projects in applied robotics, leveraging <strong>ROS 2</strong> to implement from scratch cartesian control, "
+         "inverse kinematics, and path planning (RRT).",
+         "Robots used: <strong>UR5e</strong>, <strong>Franka Emika</strong>."),
     ]
-    rows = "\n".join(
-        f'''      <article class="showcase-row reveal">
-        <a class="showcase-media" href="{href}" tabindex="-1" aria-hidden="true">
-          {overview_media(img, title)}
-        </a>
-        <div class="showcase-copy">
-          <p class="overview-year">{year}</p>
-          <h2><a href="{href}">{title}</a></h2>
-          <p>{blurb}</p>
-          <a class="overview-link" href="{href}">View project →</a>
-        </div>
-      </article>'''
-        for href, img, title, year, blurb in items
-    )
     body = f"""
     <header class="page-hero">
       <p class="crumb"><a href="../">Home</a> / Portfolio</p>
       <h1>Portfolio</h1>
       <p class="tagline">Course and personal projects spanning agricultural robotics, locomotion, mechatronics, and digital manufacturing.</p>
     </header>
-    <div class="showcase">
-{rows}
-    </div>
+{overview_cards(items, bare=frozenset(title for _, _, title, *_ in items))}
 """
     write("portfolio/index.html", shell("Portfolio — Joaquin Palacios", "portfolio", "portfolio", body))
 
@@ -785,7 +790,7 @@ def all_projects() -> None:
     project_page(
         "portfolio/plan-bee", "portfolio", "Plan Bee", ("Portfolio", "portfolio/"),
         "An agricultural robot for pollination in enclosed vertical farms.",
-        hero=vid(pb("demo-broll.mp4"), "Plan Bee demo"),
+        hero=vid(pb("pollination-routine.mp4"), "Plan Bee pollinating flowers"),
         lead="An <strong>agricultural robot</strong> intended to increase the diversity of crop production in vertical farms by enabling pollination in enclosed environments.",
         description=[
             "Plan Bee is a five degree of freedom robot with on-board computer vision and a rotating brush end-effector. "
@@ -809,7 +814,7 @@ def all_projects() -> None:
             )),
             section(
                 h2("Our Solution"),
-                fig(vid(pb("pollination-routine.mp4"), "Plan Bee pollination routine"), "Pollination Routine (x2 speed)"),
+                fig(vid(pb("demo-broll.mp4"), "Plan Bee pollination routine at 2x speed"), "Pollination Routine (x2 speed)"),
             ),
             section(
                 h2("Personal Contributions"),

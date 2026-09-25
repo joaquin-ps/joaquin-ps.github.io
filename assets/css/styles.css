@@ -182,29 +182,29 @@ a:hover {
   color: var(--accent);
 }
 
-.nav details {
+/* Research / Portfolio: the label links to the overview; hovering (or keyboard focus) reveals the projects. */
+.nav .has-menu {
   position: relative;
 }
 
-.nav summary {
-  list-style: none;
-  cursor: pointer;
-  color: var(--ink-soft);
-  font-size: var(--nav-link-size);
-  font-weight: 500;
-}
-
-.nav summary::-webkit-details-marker {
-  display: none;
-}
-
-.nav summary::after {
+.nav .nav-top::after {
   content: " ▾";
   font-size: 0.75em;
 }
 
-.nav details[open] summary {
+.nav .has-menu:hover > .nav-top,
+.nav .has-menu:focus-within > .nav-top {
   color: var(--accent);
+}
+
+/* Invisible bridge so the pointer can travel from the label to the dropdown without it closing. */
+.nav .has-menu::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  height: 0.75rem;
 }
 
 .nav .submenu {
@@ -219,6 +219,18 @@ a:hover {
   display: grid;
   gap: 0.15rem;
   z-index: 60;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-4px);
+  transition: opacity 0.15s ease, transform 0.15s ease, visibility 0s linear 0.15s;
+}
+
+.nav .has-menu:hover > .submenu,
+.nav .has-menu:focus-within > .submenu {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  transition: opacity 0.15s ease, transform 0.15s ease, visibility 0s;
 }
 
 .nav .submenu a {
@@ -329,6 +341,17 @@ main {
 .btn-ghost:hover {
   border-color: var(--accent);
   color: var(--accent);
+}
+
+/* Square logo buttons (LinkedIn, Email) sized to match the text buttons */
+.btn-icon {
+  padding: 0.7rem;
+}
+
+.btn-icon svg {
+  display: block;
+  width: 1.35rem;
+  height: 1.35rem;
 }
 
 .hero-media {
@@ -981,23 +1004,19 @@ main {
 }
 
 /* Overview pages (Research, Portfolio) */
+/* Years stand out as a teal pill above each title */
 .overview-year {
-  margin: 0 0 0.35rem;
-  font-size: 0.8rem;
-  font-weight: 650;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--accent);
-}
-
-.overview-link {
   display: inline-block;
-  margin-top: 1rem;
-  font-weight: 600;
+  margin: 0 0 0.6rem;
+  padding: 0.2rem 0.65rem;
+  font-size: 0.82rem;
+  font-weight: 650;
+  letter-spacing: 0.02em;
   color: var(--accent);
+  background: var(--accent-soft);
+  border-radius: 999px;
 }
 
-.showcase-media,
 .research-media {
   display: block;
   background: #fff;
@@ -1006,8 +1025,6 @@ main {
   overflow: hidden;
 }
 
-.showcase-media img,
-.showcase-media video,
 .research-media img,
 .research-media video {
   display: block;
@@ -1018,77 +1035,46 @@ main {
   transition: transform 0.4s ease;
 }
 
+/* Transparent renders sit directly on the page instead of a white panel. */
+.research-media.bare,
+.research-media.bare img {
+  background: transparent;
+  border-color: transparent;
+}
+
 /* Videos fill the frame instead of letterboxing. */
-.showcase-media video,
 .research-media video {
   object-fit: cover;
 }
 
-.showcase-media:hover img,
 .research-media:hover img {
   transform: scale(1.03);
 }
 
-.showcase-copy h2,
 .research-copy h2 {
   font-family: var(--font-display);
   letter-spacing: -0.02em;
   margin: 0 0 0.6rem;
 }
 
-.showcase-copy h2 a,
 .research-copy h2 a {
   color: var(--ink);
   text-decoration: none;
 }
 
-.showcase-copy h2 a:hover,
 .research-copy h2 a:hover {
   color: var(--accent);
 }
 
-.showcase-copy p,
 .research-copy p {
   margin: 0 0 0.6rem;
   color: var(--ink-soft);
   line-height: 1.6;
 }
 
-.showcase-copy p strong,
 .research-copy p strong {
   color: var(--ink);
   font-weight: 650;
-}
-
-/* Portfolio: large alternating image / text rows */
-.showcase {
-  display: grid;
-  gap: 4.5rem;
-  padding: 1rem 0 2rem;
-}
-
-.showcase-row {
-  display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-  gap: 3rem;
-  align-items: center;
-}
-
-/* Odd rows put the image on the right; flip the columns so it keeps the wider track. */
-.showcase-row:nth-child(odd) {
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
-}
-
-.showcase-row:nth-child(odd) .showcase-media {
-  order: 2;
-}
-
-.showcase-copy h2 {
-  font-size: clamp(1.7rem, 3vw, 2.3rem);
-}
-
-.showcase-copy p {
-  font-size: 1.05rem;
 }
 
 /* Research: two-column cards */
@@ -1108,20 +1094,6 @@ main {
 }
 
 @media (max-width: 760px) {
-  .showcase {
-    gap: 3rem;
-  }
-
-  .showcase-row,
-  .showcase-row:nth-child(odd) {
-    grid-template-columns: 1fr;
-    gap: 1.25rem;
-  }
-
-  .showcase-row:nth-child(odd) .showcase-media {
-    order: 0;
-  }
-
   .research-grid {
     grid-template-columns: 1fr;
   }
@@ -1389,12 +1361,30 @@ main {
     flex-wrap: wrap;
   }
 
+  /* Phone: the opened menu lists every project, indented under its section. */
+  .nav .nav-top::after,
+  .nav .has-menu::after {
+    content: none;
+  }
+
   .nav .submenu {
     position: static;
+    min-width: 0;
+    margin: 0.2rem 0 0.4rem;
+    padding: 0 0 0 1rem;
     box-shadow: none;
     border: 0;
+    border-left: 2px solid var(--line);
     background: transparent;
-    padding-left: 0.5rem;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    transition: none;
+  }
+
+  .nav .submenu a {
+    padding: 0.35rem 0.5rem;
+    font-size: calc(var(--nav-link-size) * 0.85);
   }
 }
 

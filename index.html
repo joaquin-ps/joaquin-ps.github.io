@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./assets/css/styles.css?v=37280140">
+  <link rel="stylesheet" href="./assets/css/styles.css?v=abb2a60c">
 </head>
 <body>
   <a class="skip-link" href="#content">Skip to content</a>
@@ -18,27 +18,25 @@
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
       <nav class="nav" id="site-nav" aria-label="Primary">
         <a href="./#publications">Publications</a>
-        <details>
-          <summary>Research</summary>
+        <div class="nav-item has-menu">
+          <a class="nav-top" href="./research/">Research</a>
           <div class="submenu">
-            <a href="./research/">Overview</a>
           <a href="https://roamlab.github.io/ditto/" rel="noopener noreferrer">DITTO</a>
           <a href="./research/roam-hand-3/">ROAM Hand 3</a>
           <a href="./research/myhand-sci/">MyHand-SCI</a>
           <a href="./research/roam-hand/">ROAM Hand 1</a>
           </div>
-        </details>
-        <details>
-          <summary>Portfolio</summary>
+        </div>
+        <div class="nav-item has-menu">
+          <a class="nav-top" href="./portfolio/">Portfolio</a>
           <div class="submenu">
-            <a href="./portfolio/">Overview</a>
           <a href="./portfolio/plan-bee/">Plan Bee</a>
           <a href="./portfolio/crab-io/">Crab.io</a>
           <a href="./portfolio/button-pressing-machine/">Button-Pressing Machine</a>
-          <a href="./portfolio/applied-robotics/">Applied Robotics</a>
           <a href="./portfolio/digital-manufacturing/">Digital Manufacturing</a>
+          <a href="./portfolio/applied-robotics/">Applied Robotics</a>
           </div>
-        </details>
+        </div>
       </nav>
     </div>
   </header>
@@ -62,8 +60,8 @@
         <div class="hero-actions">
           <a class="btn btn-primary" href="research/">Research</a>
           <a class="btn btn-ghost" href="portfolio/">Portfolio</a>
-          <a class="btn btn-ghost" href="https://www.linkedin.com/in/joaquin-b-palacios" rel="noopener noreferrer">LinkedIn</a>
-          <a class="btn btn-ghost" href="mailto:joaquin.palacios@columbia.edu">Email</a>
+          <a class="btn btn-ghost btn-icon" href="https://www.linkedin.com/in/joaquin-b-palacios" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a>
+          <a class="btn btn-ghost btn-icon" href="mailto:joaquin.palacios@columbia.edu" aria-label="Email" title="Email"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1.5" y="4" width="21" height="16" rx="2.5"/><path d="m2 6.5 10 7 10-7"/></svg></a>
         </div>
       </div>
       <div class="hero-media">
@@ -391,6 +389,6 @@
       <p>© Joaquin Palacios · Robotics · Columbia University / <a href="https://roam.me.columbia.edu/" rel="noopener noreferrer">ROAM Lab</a></p>
     </div>
   </footer>
-  <script src="./assets/js/main.js?v=7d8d8bed"></script>
+  <script src="./assets/js/main.js?v=f308d1f0"></script>
 </body>
 </html>

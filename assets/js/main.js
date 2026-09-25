@@ -8,17 +8,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Close other nav dropdowns when one opens
-  document.querySelectorAll(".nav details").forEach((d) => {
-    d.addEventListener("toggle", () => {
-      if (d.open) {
-        document.querySelectorAll(".nav details").forEach((other) => {
-          if (other !== d) other.open = false;
-        });
-      }
-    });
-  });
-
   const reveals = document.querySelectorAll(".reveal");
   if ("IntersectionObserver" in window && reveals.length) {
     const io = new IntersectionObserver(

@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../assets/css/styles.css?v=37280140">
+  <link rel="stylesheet" href="../assets/css/styles.css?v=abb2a60c">
 </head>
 <body>
   <a class="skip-link" href="#content">Skip to content</a>
@@ -18,27 +18,25 @@
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
       <nav class="nav" id="site-nav" aria-label="Primary">
         <a href="../#publications">Publications</a>
-        <details>
-          <summary>Research</summary>
+        <div class="nav-item has-menu">
+          <a class="nav-top" href="../research/">Research</a>
           <div class="submenu">
-            <a href="../research/">Overview</a>
           <a href="https://roamlab.github.io/ditto/" rel="noopener noreferrer">DITTO</a>
           <a href="../research/roam-hand-3/">ROAM Hand 3</a>
           <a href="../research/myhand-sci/">MyHand-SCI</a>
           <a href="../research/roam-hand/">ROAM Hand 1</a>
           </div>
-        </details>
-        <details>
-          <summary>Portfolio</summary>
+        </div>
+        <div class="nav-item has-menu">
+          <a class="nav-top" href="../portfolio/" aria-current="page">Portfolio</a>
           <div class="submenu">
-            <a href="../portfolio/" aria-current="page">Overview</a>
           <a href="../portfolio/plan-bee/">Plan Bee</a>
           <a href="../portfolio/crab-io/">Crab.io</a>
           <a href="../portfolio/button-pressing-machine/">Button-Pressing Machine</a>
-          <a href="../portfolio/applied-robotics/">Applied Robotics</a>
           <a href="../portfolio/digital-manufacturing/">Digital Manufacturing</a>
+          <a href="../portfolio/applied-robotics/">Applied Robotics</a>
           </div>
-        </details>
+        </div>
       </nav>
     </div>
   </header>
@@ -49,60 +47,60 @@
       <h1>Portfolio</h1>
       <p class="tagline">Course and personal projects spanning agricultural robotics, locomotion, mechatronics, and digital manufacturing.</p>
     </header>
-    <div class="showcase">
-      <article class="showcase-row reveal">
-        <a class="showcase-media" href="plan-bee/" tabindex="-1" aria-hidden="true">
+    <div class="research-grid">
+      <article class="research-card reveal">
+        <a class="research-media bare" href="plan-bee/" tabindex="-1" aria-hidden="true">
           <img src="../media/home/highlight-plan-bee.png" alt="Plan Bee" loading="lazy">
         </a>
-        <div class="showcase-copy">
+        <div class="research-copy">
           <p class="overview-year">2023</p>
           <h2><a href="plan-bee/">Plan Bee</a></h2>
           <p>Developing a robot to automate <strong>crop pollination</strong> in vertical farms.</p>
-          <a class="overview-link" href="plan-bee/">View project →</a>
+          <p>Mechatronics design and software: firmware, path planning, and computer vision.</p>
         </div>
       </article>
-      <article class="showcase-row reveal">
-        <a class="showcase-media" href="crab-io/" tabindex="-1" aria-hidden="true">
+      <article class="research-card reveal">
+        <a class="research-media bare" href="crab-io/" tabindex="-1" aria-hidden="true">
           <img src="../media/home/highlight-crab-io.png" alt="Crab.io" loading="lazy">
         </a>
-        <div class="showcase-copy">
+        <div class="research-copy">
           <p class="overview-year">2022</p>
           <h2><a href="crab-io/">Crab.io</a></h2>
           <p>A <strong>quadruped robot</strong> known for being cute and being fast!</p>
-          <a class="overview-link" href="crab-io/">View project →</a>
+          <p>Mechatronics design and firmware implementation, built with Valentina Gonzalez in Columbia’s Robotics Studio.</p>
         </div>
       </article>
-      <article class="showcase-row reveal">
-        <a class="showcase-media" href="button-pressing-machine/" tabindex="-1" aria-hidden="true">
+      <article class="research-card reveal">
+        <a class="research-media bare" href="button-pressing-machine/" tabindex="-1" aria-hidden="true">
           <img src="../media/home/highlight-button-pressing-machine.png" alt="Button-Pressing Machine" loading="lazy">
         </a>
-        <div class="showcase-copy">
+        <div class="research-copy">
           <p class="overview-year">2022</p>
           <h2><a href="button-pressing-machine/">Button-Pressing Machine</a></h2>
           <p>An exploration of <strong>mechatronics, machine design, controls,</strong> and <strong>machining</strong>.</p>
-          <a class="overview-link" href="button-pressing-machine/">View project →</a>
+          <p>Mechanical design of the four-bar linkage and Arduino firmware with PID control.</p>
         </div>
       </article>
-      <article class="showcase-row reveal">
-        <a class="showcase-media" href="applied-robotics/" tabindex="-1" aria-hidden="true">
-          <img src="../media/home/highlight-applied-robotics.png" alt="Applied Robotics" loading="lazy">
-        </a>
-        <div class="showcase-copy">
-          <p class="overview-year">2023</p>
-          <h2><a href="applied-robotics/">Applied Robotics</a></h2>
-          <p>Projects in applied robotics, leveraging <strong>ROS 2</strong> to implement from scratch cartesian control, inverse kinematics, and path planning (RRT).<br>Robots used: <strong>UR5e</strong>, <strong>Franka Emika</strong>.</p>
-          <a class="overview-link" href="applied-robotics/">View project →</a>
-        </div>
-      </article>
-      <article class="showcase-row reveal">
-        <a class="showcase-media" href="digital-manufacturing/" tabindex="-1" aria-hidden="true">
+      <article class="research-card reveal">
+        <a class="research-media bare" href="digital-manufacturing/" tabindex="-1" aria-hidden="true">
           <img src="../media/home/highlight-digital-manufacturing.png" alt="Digital Manufacturing" loading="lazy">
         </a>
-        <div class="showcase-copy">
+        <div class="research-copy">
           <p class="overview-year">2022–2023</p>
           <h2><a href="digital-manufacturing/">Digital Manufacturing</a></h2>
           <p>A collection of projects exploring <strong>generative design, topology optimization, additive manufacturing,</strong> and more.</p>
-          <a class="overview-link" href="digital-manufacturing/">View project →</a>
+          <p>Leveraging modern software and manufacturing to create art and produce novel designs.</p>
+        </div>
+      </article>
+      <article class="research-card reveal">
+        <a class="research-media bare" href="applied-robotics/" tabindex="-1" aria-hidden="true">
+          <img src="../media/home/highlight-applied-robotics-transparent.png" alt="Applied Robotics" loading="lazy">
+        </a>
+        <div class="research-copy">
+          <p class="overview-year">2023</p>
+          <h2><a href="applied-robotics/">Applied Robotics</a></h2>
+          <p>Projects in applied robotics, leveraging <strong>ROS 2</strong> to implement from scratch cartesian control, inverse kinematics, and path planning (RRT).</p>
+          <p>Robots used: <strong>UR5e</strong>, <strong>Franka Emika</strong>.</p>
         </div>
       </article>
     </div>
@@ -117,6 +115,6 @@
       <p>© Joaquin Palacios · Robotics · Columbia University / <a href="https://roam.me.columbia.edu/" rel="noopener noreferrer">ROAM Lab</a></p>
     </div>
   </footer>
-  <script src="../assets/js/main.js?v=7d8d8bed"></script>
+  <script src="../assets/js/main.js?v=f308d1f0"></script>
 </body>
 </html>
